@@ -1,0 +1,13 @@
+# Dependency directory
+node_modules
+
+# Environment configuration
+.env
+
+# CSS / SCSS files
+**/.sass-cache/**
+
+# logs
+npm-debug.log*
+*.log
+
