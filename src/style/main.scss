@@ -1,0 +1,138 @@
+@import 'fonts';
+@import 'browser';
+@import 'printer';
+@import 'colors';
+@import 'functions';
+
+html {
+  background-color: color($colors, medium);
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  min-height: 100%;
+
+  margin: 0px;
+
+  background-color: color($colors, white);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  padding: 2em 8px 5px;
+
+  // color: color-contrast($colors, primary);
+  color: color($colors, white);
+  background-color: color($colors, primary-muted);
+
+  border-right: solid color($colors, primary) 8px;
+
+  text-align: right;
+
+  a {
+    color: color($colors, white);
+  }
+
+  .name {
+    margin-bottom: 2rem;
+
+    font-size: 3rem;
+    font-weight: 100;
+  }
+
+  address {
+    min-width: 10rem;
+    font-style: normal;
+  }
+
+  > * {
+    z-index: 1;
+  }
+
+  .background {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+}
+
+.content {
+  padding: 10px 15px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .title-line {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .title {
+        font-weight: 700;
+      }
+
+      .location-duration {
+        color: color($colors, medium);
+      }
+    }
+
+    p {
+      margin-top: 0.1rem;
+      margin-left: 3rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+section {
+  header {
+    margin-bottom: 0.3rem;
+
+    font-size: 1.1rem;
+    color: color($colors, primary);
+    text-transform: uppercase;
+  }
+
+  font-size: 0.9rem;
+
+  margin-bottom: 1em;
+}
+
+ul.skills {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    display: inline;
+
+    &::after {
+      content: ',';
+    }
+
+    &:last-of-type {
+      &::after {
+        content: '';
+      }
+    }
+  }
+}

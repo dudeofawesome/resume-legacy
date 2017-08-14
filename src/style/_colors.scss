@@ -1,0 +1,31 @@
+$text-color: rgb(0, 0, 0);
+$background-color: rgb(255, 255, 255);
+
+$transition-speed: 0.25s;
+
+// http://paletton.com/#uid=7000u0kw0qmm1xtsjvlAHlxINgh - color palette
+
+$colors: (
+  primary: rgb(210, 0, 0),
+  primary-muted: rgb(146, 0, 0),
+  secondary: rgb(0, 168, 0),
+  danger-bright: rgb(250, 129, 29),
+  danger: rgb(210, 95, 0),
+  favorite: rgb(0, 126, 126),
+  background: rgb(150, 150, 150),
+
+  white: rgb(255, 255, 255),
+  light: rgb(244, 244, 244),
+  medium-light-light: rgb(222, 222, 222),
+  medium-light: rgb(200, 200, 200),
+  medium: rgb(68, 68, 68),
+  dark: rgb(34, 34, 34),
+  black: rgb(0, 0, 0),
+
+  facebook: rgb(59, 89, 152)
+);
+
+$pixels: (
+  primary: 'assets/img/D20000.png',
+  primary-muted: 'assets/img/920000.png'
+);

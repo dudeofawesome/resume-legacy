@@ -6,7 +6,23 @@
   "repository": "https://github.com/dudeofawesome/resume.git",
   "author": "Louis Orleans <louis@orleans.io>",
   "license": "UNLICENSED",
-  "dependencies": {
-    "node-sass": "^4.5.3"
+  "scripts": {
+    "start": "npm run watch",
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "serve": "http-server build",
+    "test": "exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^3.1.0",
+    "http-server": "^0.10.0",
+    "node-sass": "^4.5.3",
+    "run-sequence": "^2.1.0",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0"
   }
 }
