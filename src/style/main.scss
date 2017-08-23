@@ -15,14 +15,16 @@ body {
   flex-direction: row;
 
   position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   min-height: 100%;
 
-  margin: 0px;
+  margin: 0;
 
   background-color: color($colors, white);
+
+  font-size: 0.5em;
 }
 
 .sidebar {
@@ -30,13 +32,13 @@ body {
   flex-direction: column;
 
   position: relative;
-  padding: 2em 8px 5px;
+  padding: 2rem 0.5rem 0.3125rem;
 
   // color: color-contrast($colors, primary);
   color: color($colors, white);
   background-color: color($colors, primary-muted);
 
-  border-right: solid color($colors, primary) 8px;
+  border-right: solid color($colors, primary) 0.5rem;
 
   text-align: right;
 
@@ -62,7 +64,7 @@ body {
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
-      padding: 5px 0;
+      padding: 0.3125rem 0;
 
       .material-icons {
         margin-top: -0.1rem;
@@ -72,7 +74,7 @@ body {
   }
 
   address {
-    min-width: 10rem;
+    min-width: 9rem;
     font-style: normal;
   }
 
@@ -94,7 +96,7 @@ body {
 }
 
 .content {
-  padding: 10px 15px;
+  padding: 0.625rem 0.9375rem;
 
   ul {
     list-style-type: none;
@@ -117,7 +119,7 @@ body {
 
     p {
       margin-top: 0.1rem;
-      margin-left: 3rem;
+      margin-left: 2rem;
       margin-bottom: 0.5rem;
     }
   }
@@ -134,7 +136,7 @@ section {
 
   font-size: 0.9rem;
 
-  margin-bottom: 1em;
+  margin-bottom: 0.9rem;
 }
 
 ul.skills {
@@ -157,13 +159,17 @@ ul.skills {
   }
 }
 
+.material-icons {
+  font-size: 1.5rem;
+}
+
 @media screen and (max-width: 45em) {
   body {
     flex-direction: column;
   }
 
   .sidebar {
-    border-bottom: solid color($colors, primary) 8px;
+    border-bottom: solid color($colors, primary) 0.5rem;
     border-right: none;
     text-align: center;
 
@@ -172,7 +178,7 @@ ul.skills {
       justify-content: center;
 
       > * {
-        padding: 5px 15px;
+        padding: 0.3125rem 0.9375rem;
         flex-direction: row-reverse;
         text-align: left;
         text-align: start;

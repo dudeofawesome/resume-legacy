@@ -12,3 +12,15 @@
     }
   }
 }
+
+@media print and (min-width: 34rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media print and (min-width: 46rem) {
+  html {
+    font-size: 14px;
+  }
+}
