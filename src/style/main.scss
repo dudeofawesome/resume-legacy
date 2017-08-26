@@ -27,6 +27,16 @@ body {
   font-size: 0.5em;
 }
 
+a {
+  color: color($colors, black);
+
+  transition: color $transition-speed;
+
+  &:hover {
+    color: color($colors, primary-muted);
+  }
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
