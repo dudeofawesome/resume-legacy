@@ -1,3 +1,59 @@
-@media screen {
+@import 'variables';
+@import 'functions';
 
+@media screen {
+  body {
+    max-width: $max-page-width;
+
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: $max-page-width) {
+  body {
+    margin: 1rem auto;
+
+    @include shadow-depth(3);
+  }
+}
+
+@media screen and (max-width: 45em) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    border-bottom: solid color($colors, primary) 0.5rem;
+    border-right: none;
+    text-align: center;
+
+    .contact {
+      flex-flow: row wrap;
+      justify-content: center;
+
+      > * {
+        padding: 0.3125rem 0.9375rem;
+        flex-direction: row-reverse;
+        text-align: left;
+        text-align: start;
+
+        .material-icons {
+          margin-left: 0;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 22em) {
+  .sidebar {
+    .contact {
+      justify-content: flex-start;
+
+      > * {
+        flex-grow: 1;
+      }
+    }
+  }
 }
