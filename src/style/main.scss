@@ -173,6 +173,22 @@ ul.skills {
   font-size: 1.5rem;
 }
 
+@media screen {
+  body {
+    max-width: 70rem;
+
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 70rem) {
+  body {
+    margin: 1rem auto;
+
+    @include shadow-depth(3);
+  }
+}
+
 @media screen and (max-width: 45em) {
   body {
     flex-direction: column;
