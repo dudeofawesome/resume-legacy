@@ -18,11 +18,16 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
+    "gulp-merge": "^0.1.1",
+    "gulp-mustache": "^3.0.0",
     "gulp-sass": "^3.1.0",
+    "gulp-yaml": "^1.0.1",
     "http-server": "^0.10.0",
+    "mustache": "^2.3.0",
     "node-sass": "^4.5.3",
     "run-sequence": "^2.1.0",
     "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^17.0.0"
+    "stylelint-config-standard": "^17.0.0",
+    "through2": "^2.0.3"
   }
 }
