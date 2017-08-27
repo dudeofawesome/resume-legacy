@@ -1,0 +1,101 @@
+language: node_js
+node_js:
+- 6.11.2
+npm:
+- 4.5.0
+
+# https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Node.js-v4-(or-io.js-v3)-compiler-requirements
+# env:
+# - CXX=g++-4.8
+
+# addons:
+#   apt:
+#     sources:
+#     - ubuntu-toolchain-r-test
+#     packages:
+#     - g++-4.8
+
+# https://blog.travis-ci.com/2013-12-05-speed-up-your-builds-cache-your-dependencies/
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - "$HOME/.yarn-cache"
+
+# https://docs.travis-ci.com/user/customizing-the-build#Git-Clone-Depth
+git:
+  depth: 1
+
+# https://docs.travis-ci.com/user/customizing-the-build#Building-Specific-Branches
+branches:
+  only:
+    - master
+    - develop
+    - /^release\/.*$/
+
+before_script:
+  - gulp build
+
+script:
+  - yarn test
+
+after_success: |
+  DEPLOY_PROD=false
+  DEPLOY_DEV=false
+
+  if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+    DEPLOY_PROD=true
+  fi
+
+before_deploy:
+  - echo "DEPLOY_PROD = $DEPLOY_PROD"
+  - echo "DEPLOY_DEV = $DEPLOY_DEV"
+
+# https://docs.travis-ci.com/user/deployment/s3
+deploy:
+  - provider: s3
+    access_key_id: "$AWS_ACCESS_KEY_ID"
+    secret_access_key: "$AWS_ACCESS_KEY_SECRET"
+    bucket: $AWS_S3_PROD_BUCKET
+    skip_cleanup: true
+    detect_encoding: true
+    region: us-west-1
+    local_dir: build
+    on:
+      all_branches: true
+      condition: $DEPLOY_PROD == true
+  - provider: s3
+    access_key_id: "$AWS_ACCESS_KEY_ID"
+    secret_access_key: "$AWS_ACCESS_KEY_SECRET"
+    bucket: $AWS_S3_DEV_BUCKET
+    skip_cleanup: true
+    detect_encoding: true
+    region: us-west-1
+    local_dir: build
+    on:
+      all_branches: true
+      condition: $DEPLOY_DEV == true
+
+after_deploy: |
+  if [[ $DEPLOY_PROD == true || $DEPLOY_DEV == true ]]; then
+    echo "Installing AWS CLI"
+    pip install --user awscli
+
+    aws configure set preview.cloudfront true
+
+    if [[ $DEPLOY_PROD == true ]]; then
+      aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
+      echo "Created CloudFront prod invalidation"
+    elif [[ $DEPLOY_DEV == true ]]; then
+      aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DEV_DISTRIBUTION_ID --paths "/*"
+      echo "Created CloudFront dev invalidation"
+    fi
+  fi
+
+notifications:
+  webhooks:
+    urls:
+      - https://ci-stoplight.herokuapp.com/travis-ci
+    on_start: always
+    on_success: always
+    on_failure: always
