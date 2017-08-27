@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Louis Orleans' Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    {{> ../fragments/icons }}
+
+    <link rel="manifest" href="manifest.json">
+
+    <link href="style/index.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="name">
+        Louis Orleans
+      </div>
+      <div class="contact">
+        <div class="address">
+          <address>
+            230 S. Redwood Ave. #B<br />
+            Brea, CA 92821
+          </address>
+          <i class="material-icons">home</i>
+        </div>
+        <div class="phone">
+          <a href="tel:+7143869047">714.386.9047</a>
+          <i class="material-icons">phone</i>
+        </div>
+        <div class="email">
+          <a href="mailto:louis@orleans.io">louis@orleans.io</a>
+          <i class="material-icons">mail</i>
+        </div><br />
+        <div class="url">
+          <a href="https://orleans.io">https://orleans.io</a>
+          <i class="material-icons">public</i>
+        </div>
+        <div class="github">
+          <a href="https://github.com/dudeofawesome">github/dudeofawesome</a>
+          <i class="material-icons">code</i>
+        </div>
+      </div>
+
+      <img src="/assets/img/920000.png" class="background">
+    </div>
+
+    <div class="content">
+
+      <section>
+        <header>Experience</header>
+
+        <ul>
+          {{#experience}}
+            <li>
+              <div class="title-line">
+                <div class="title">
+                  {{& title}}
+                </div>
+                <div class="location-duration">
+                  {{& location}} — {{& duration}}
+                </div>
+              </div>
+              {{#description}}
+                <p class="description">
+                  {{& description}}
+                </p>
+              {{/description}}
+            </li>
+          {{/experience}}
+        </ul>
+      </section>
+
+      <section>
+        <header>Accomplishments</header>
+
+        <ul>
+          {{#accomplishments}}
+            <li>
+              <div class="title-line">
+                <div class="title">
+                  {{& title}}
+                </div>
+                <div class="location-duration">
+                  {{& location}} — {{& duration}}
+                </div>
+              </div>
+              {{#description}}
+                <p class="description">
+                  {{& description}}
+                </p>
+              {{/description}}
+            </li>
+          {{/accomplishments}}
+        </ul>
+
+      </section>
+
+      <section>
+        <header>Education</header>
+
+        <ul>
+          {{#education}}
+            <li>
+              <div class="title-line">
+                <div class="title">
+                  {{& title}}
+                </div>
+                <div class="location-duration">
+                  {{& location}} — {{& duration}}
+                </div>
+              </div>
+              {{#description}}
+                <p class="description">
+                  {{& description}}
+                </p>
+              {{/description}}
+            </li>
+          {{/education}}
+        </ul>
+      </section>
+
+      <section>
+        <header>Skills</header>
+
+        <ul class="skills">
+          {{#skills}}
+            <li>{{.}}</li>
+          {{/skills}}
+        </ul>
+      </section>
+
+    </div>
+
+  </body>
+</html>

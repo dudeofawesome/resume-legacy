@@ -1,0 +1,108 @@
+experience:
+  - title: Senior Software Engineer, Castifi
+    location: Irvine, CA
+    duration: 2016 - present
+    description: |
+      Architected and implemented casting and on-set management platform for film background actors.
+      Built <a href="https://app.castifi.com">web app</a>,
+        <a href="https://play.google.com/store/apps/details?id=com.castifi">Android app</a>,
+        <a href="https://itunes.apple.com/us/app/castifi/id1176896442?mt=8">iOS app</a>, and API server.
+      Contributed to Ionic, Cordova, Ionic Native, DefinitelyTyped open source projects.
+  - title: Head of Software Engineering, Edyza, Inc
+    location: Irvine, CA
+    duration: 2016 - present
+    description: |
+      Leading Software Engineering Team through development of both backend and frontend software for sensor platform,
+        including analytics, data visualization, and hardware actuation based on sensor data.
+      Designed physical packaging for shipping sensor nodes.
+  - title: Software Engineer, Productive Programming Inc.
+    location: Placentia, CA
+    duration: 2015
+    description: |
+      Developed a wide array of projects, including desktop applications, Android apps, web apps, and command line applications.
+      Provided system testing for other projects.
+  - title: Android app, Home for Cardboard, for Google Cardboard
+    location: Brea, CA
+    duration: 2014 - present
+    description: |
+      Home for Cardboard is an alternative home screen to be used with a virtual reality headset, such as Google Cardboard.
+      It enables users to use their phone without the need to constantly remove it from the headset.
+      Over 20,000 people, with 100+ daily downloads.
+      <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.cardboardhome">
+        Available on the Google Play Store.
+      </a>
+  - title: Android app, Sole Champion Mobile Game
+    location: Brea, CA
+    duration: 2014
+    description: |
+      Developed an augmented reality game.
+      Player places a card on table, which their phone recognizes, and renders the game on top of their table.
+      Players can then move their phone for any other view of the game.
+      <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.solechamp">Available on the Google Play Store.</a>
+  - title: High School Information Technology Volunteer
+    location: Brea Olinda High School
+    duration: 2011 - 2014
+    description: |
+      Installed hardware, repaired computers and other electronic hardware, monitored school-wide systems, improved network layouts,
+        provided technical support.
+  - title: Lead Teacher of Digital Photography Class
+    location: EV Free Church of Fullerton
+    duration: 2008 - 2011
+    description: |
+      Developed curriculum to teach students in first through sixth grade about photographic techniques and digital editing.
+      I was in 7th grade at the time, and the only lead teacher under the age of 20.
+accomplishments:
+  - title: 1st place winner at HackUCI
+    location: UCI, CA
+    duration: 2015
+  - title: 1st place overall at Citrus Hacks
+    location: UCR, CA
+    duration: 2015
+  - title: 1st place at LA Hacks 2015 Civic Hack Category
+    location: UCLA, CA
+    duration: 2015
+  - title: 1st place in Cal Poly Cyber Security Competition
+    location: Cal Poly Pomona, CA
+    duration: 2013
+  - title: 3rd place in Discovery Science Center Pumpkin Launch
+    location: Cal State Fullerton, CA
+    duration: 2013
+  - title: Fullerton College Honors Student
+    location: Fullerton College, CA
+    duration: 2014 - 2015
+education:
+  - title: Fullerton College
+    location: Fullerton, CA
+    duration: 2013 - 2015
+    description: |
+      Enrolled in Honors program, pursuing a B.S. in Software Engineering from UCI.
+      Relevant Courses — Intro to Programming Concepts in C++, Data Structures in C++, Intro to Programming: Computer Games,
+        Honors College Writing
+  - title: Brea Olinda High School
+    location: Brea, CA
+    duration: 2010 - 2014
+    description: |
+      Select member of Brea Olinda High School Global IT Academy, a four year program which prepares students such as myself to
+        become capable software engineers.
+      Relevant Courses — Visual Basic.NET, Web Design, Java, AP Calculus AB, AP Physics B, Honors Chemistry
+skills:
+  - Team Leadership
+  - Teaching
+  - Problem Solving
+  - Angular
+  - Ionic
+  - Node.JS
+  - TypeScript / JavaScript / ES6+
+  - SASS
+  - LoopBack
+  - Android Apps
+  - Java
+  - Unity3D
+  - Python
+  - Swift
+  - C++
+  - C#
+  - PostgreSQL
+  - MongoDB
+  - Git
+  - Photoshop

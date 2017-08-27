@@ -1,11 +1,16 @@
 const Gulp = require('gulp');
 const Sass = require('gulp-sass');
+const Mustache = require('gulp-mustache');
+const Yaml = require('gulp-yaml');
 const Del = require('del');
+const Through = require('through2');
+const Merge = require('gulp-merge');
 const Sequence = require('run-sequence');
 const Connect = require('gulp-connect');
 
 const SRC = {
-  HTML: `src/**/*.html`,
+  HTML: `src/templates/*.mustache`,
+  DATA: `src/data.yaml`,
   SASS: `src/**/*.scss`,
   ASSETS: `src/assets/**/*`
 };
@@ -13,10 +18,34 @@ const SRC = {
 Gulp.task(`clean:js`, () => Del([`build/**/*.js`, `build/**/*.d.ts`]));
 Gulp.task(`clean:html`, () => Del([`build/**/*.html`]));
 Gulp.task(`clean:css`, () => Del([`build/**/*.css`, `build/**/*.sass`]));
-Gulp.task(`clean`, [`clean:js`, `clean:html`, `clean:css`]);
+Gulp.task(`clean:assets`, () => Del([`build/assets`]));
+Gulp.task(`clean`, [`clean:js`, `clean:html`, `clean:css`, `clean:assets`]);
 
-Gulp.task(`build:html`, () =>
-  Gulp.src(SRC.HTML)
+let dataFile = {};
+Gulp.task(`build:yaml`, () =>
+  Gulp.src(SRC.DATA).pipe(Yaml())
+    .pipe(Through.obj(function (file, encoding, cb) {
+      if (file.path.endsWith(`.json`)) {
+        dataFile = JSON.parse(file.contents.toString(encoding));
+        return cb(null);
+      }
+    })));
+Gulp.task(`build:html`, [`build:yaml`], () =>
+  // Merge(
+  //   Gulp.src(SRC.HTML),
+  //   Gulp.src(SRC.DATA)
+  // )
+  Gulp.src([SRC.HTML, SRC.DATA])
+    .pipe(Through.obj(function (file, encoding, cb) {
+      if (!file.path.endsWith(`.json`)) {
+        return cb(null, file);
+      } else {
+        return cb(null);
+      }
+    }))
+    .pipe(Mustache(dataFile, {
+      extension: '.html'
+    }))
     .pipe(Connect.reload())
     .pipe(Gulp.dest(`build`)));
 Gulp.task(`build:assets`, () =>
