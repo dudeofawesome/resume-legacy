@@ -10,6 +10,7 @@ const Connect = require('gulp-connect');
 
 const SRC = {
   HTML: `src/templates/*.mustache`,
+  HTML_FRAGMENTS: `src/fragments/*.mustache`,
   DATA: `src/data.yaml`,
   SASS: `src/**/*.scss`,
   ASSETS: `src/assets/**/*`
@@ -35,12 +36,12 @@ Gulp.task(`build:html`, [`build:yaml`], () =>
   //   Gulp.src(SRC.HTML),
   //   Gulp.src(SRC.DATA)
   // )
-  Gulp.src([SRC.HTML, SRC.DATA])
+  Gulp.src([SRC.HTML, SRC.HTML_FRAGMENTS, SRC.DATA])
     .pipe(Through.obj(function (file, encoding, cb) {
-      if (!file.path.endsWith(`.json`)) {
-        return cb(null, file);
-      } else {
+      if (file.path.endsWith(`.json`) || file.path.match(/\/fragments\//i)) {
         return cb(null);
+      } else {
+        return cb(null, file);
       }
     }))
     .pipe(Mustache(dataFile, {

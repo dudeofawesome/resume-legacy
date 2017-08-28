@@ -7,3 +7,62 @@
   ga('create', 'UA-46636851-8', 'auto');
   ga('send', 'pageview');
 </script>
+
+<script type="text/javascript">
+  // This script for tracking Printed Pages & Print Method in Google Analytics is provided as it is, and was put together by Eivind Savio April 2013. You need jQuery for this script to work. Happy tracking!
+  (function () {
+    var html = document.getElementsByTagName('html')[0];
+    var runOnce;
+    var afterPrint = function () {
+      // Because of Chrome we can only allow the code to run once.
+      if (!runOnce) {
+        runOnce = true;
+        var printData = html.getAttribute('printType');
+        var mouseButton = html.getAttribute('mouseBtn');
+          if (printData === undefined && mouseButton === 'Right') { // Print activated using Right Mouse Button
+            printData = 'Right Mouse Button';
+          } else if (printData === undefined) { // Print (probably) activated using Browser Menu
+            printData = 'Browser Menu';
+        }
+        // Send Print Data to Google Analytics
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Page Printed',
+          eventAction: printData,
+          eventLabel: window.location.pathname
+        });
+        // Clear the attribute, if not printing from the menu can be tracked wrongly.
+        html.removeAttribute('printType');
+        // Clear the attribute, if not printing from the menu can be tracked wrongly.
+        html.removeAttribute('mouseBtn');
+      }
+    };
+    // Track printing from browsers using the Webkit engine
+    if (window.matchMedia) {
+      var mediaQueryList = window.matchMedia('print');
+      mediaQueryList.addListener(function (mql) {
+        if (!mql.matches) {
+          afterPrint();
+        }
+      });
+    }
+    // Internet Explorer
+    window.onafterprint = afterPrint;
+    // Track printing using Ctrl/Cmd+P.
+    document.addEventListener('keydown', function (allBrowsers) {
+      if (allBrowsers.keyCode === 80 && (allBrowsers.ctrlKey || allBrowsers.metaKey)) {
+        html.setAttribute('printType', 'Ctrl/Cmd+P');
+        // Opera is a little different so we must send the afterPrint() function to get the tracking to work.
+        if ((!!window.opr && !!opr.addons) || !!window.opera) {
+          afterPrint();
+        }
+      }
+    });
+    // Detect Right Mouse Button Click
+    html.addEventListener('mousedown', function (e) {
+      if (e.which === 3) {
+        html.setAttribute('mouseBtn', 'Right');
+      }
+    });
+  }());
+</script>
