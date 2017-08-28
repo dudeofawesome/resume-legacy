@@ -2,7 +2,7 @@
 @import 'functions';
 
 @media screen {
-  body {
+  .resume {
     max-width: $max-page-width;
 
     margin: 0 auto;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: $max-page-width) {
-  body {
+  .resume {
     margin: 1rem auto;
 
     @include shadow-depth(3);
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 45rem) {
-  body {
+  .resume {
     flex-direction: column;
   }
 
