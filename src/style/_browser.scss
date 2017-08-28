@@ -17,7 +17,13 @@
   }
 }
 
-@media screen and (max-width: 45rem) {
+@media screen and (min-width: 46rem) {
+  .description {
+    padding-right: 15rem;
+  }
+}
+
+@media screen and (max-width: 46rem) {
   .resume {
     flex-direction: column;
   }
