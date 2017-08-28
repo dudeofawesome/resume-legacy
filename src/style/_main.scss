@@ -39,7 +39,7 @@ a {
   flex-direction: column;
 
   position: relative;
-  padding: 2rem 0.5rem 0.3125rem;
+  padding: 0 0.5rem 0.3125rem;
 
   // color: color-contrast($colors, primary);
   color: color($colors, white);
@@ -54,7 +54,7 @@ a {
   }
 
   .name {
-    margin-bottom: 2rem;
+    margin: 2rem 0;
 
     font-size: 3rem;
     font-weight: 100;

@@ -17,15 +17,20 @@
   }
 }
 
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 45rem) {
   body {
     flex-direction: column;
   }
 
   .sidebar {
+    padding-bottom: 0.5rem;
     border-bottom: solid color($colors, primary) 0.5rem;
     border-right: none;
     text-align: center;
+
+    .name {
+      margin: 1rem 0;
+    }
 
     .contact {
       flex-flow: row wrap;
@@ -46,7 +51,7 @@
   }
 }
 
-@media screen and (max-width: 22em) {
+@media screen and (max-width: 22rem) {
   .sidebar {
     .contact {
       justify-content: flex-start;
