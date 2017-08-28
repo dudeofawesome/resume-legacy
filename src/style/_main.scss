@@ -109,24 +109,24 @@ a {
     margin: 0;
     padding: 0;
 
-    .title-line {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      .title {
-        font-weight: 700;
-      }
-
-      .location-duration {
-        color: color($colors, medium);
-      }
-    }
-
     p {
       margin-top: 0.1rem;
       margin-left: 2rem;
       margin-bottom: 0.5rem;
+    }
+  }
+
+  .title-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-weight: 700;
+    }
+
+    .location-duration {
+      color: color($colors, medium);
     }
   }
 }
