@@ -83,6 +83,11 @@ after_deploy: |
 
     aws configure set preview.cloudfront true
 
+    mkdir ~/.aws
+    echo "[default]" > ~/.aws/credentials
+    echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/credentials
+    echo "aws_secret_access_key=$AWS_ACCESS_KEY_SECRET" >> ~/.aws/credentials
+
     if [[ $DEPLOY_PROD == true ]]; then
       aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
       echo "Created CloudFront prod invalidation"
