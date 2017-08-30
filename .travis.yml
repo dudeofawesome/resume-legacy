@@ -79,7 +79,7 @@ deploy:
 after_deploy: |
   if [[ $DEPLOY_PROD == true || $DEPLOY_DEV == true ]]; then
     echo "Installing AWS CLI"
-    pip install --user awscli
+    pip install --user --quiet awscli
 
     aws configure set preview.cloudfront true
 
