@@ -3,31 +3,36 @@ const nameEle: HTMLDivElement = document.querySelector('#sidebar .name') as HTML
 const nameContainerEle: HTMLDivElement = document.querySelector('#sidebar .name-container') as HTMLDivElement;
 const contactEle: HTMLDivElement = document.querySelector('#sidebar .contact') as HTMLDivElement;
 
-document.addEventListener('scroll', ev => {
-  let scroll_percent = window.scrollY / contactEle.clientHeight;
-  scroll_percent = scroll_percent > 1 ? 1 : scroll_percent;
-  scroll_percent = scroll_percent < 0 ? 0 : scroll_percent;
+let isSmallScreen: boolean = false;
+let mq = window.matchMedia(`screen and (max-width: 46rem)`);
+isSmallScreen = mq.matches;
+mq.addListener(mq => {
+  isSmallScreen = mq.matches;
 
-  // const scale = Math.cos(scroll_percent * Math.PI) / 4 + 0.75;
-  const scale = -scroll_percent / 2 + 1;
-
-  nameContainerEle.style.transform = `scale3d(${scale}, 1, 1)`;
-  nameEle.style.transform = `scale3d(1, ${scale}, 1)`;
-
-  if (window.scrollY - (sidebarEle.clientHeight - 44.5) > 0) {
-    if (!nameEle.classList.contains('small-header')) {
-      nameEle.classList.add('small-header');
-    }
-  } else {
+  if (!isSmallScreen && nameEle.classList.contains('small-header')) {
     nameEle.classList.remove('small-header');
+    nameContainerEle.style.transform = `scale3d(1, 1, 1)`;
+    nameEle.style.transform = `scale3d(1, 1, 1)`;
   }
 });
 
-// const intersectionObserver = new IntersectionObserver(entries => {
-//   console.log(entries);
-// }, {
-//   // root: document.querySelector('#sidebar .name'),
-//   threshold: 0
-// });
+document.addEventListener('scroll', ev => {
+  if (isSmallScreen) {
+    let scroll_percent = window.scrollY / contactEle.clientHeight;
+    scroll_percent = scroll_percent > 1 ? 1 : scroll_percent;
+    scroll_percent = scroll_percent < 0 ? 0 : scroll_percent;
 
-// intersectionObserver.observe(document.querySelector('#sidebar .contact'));
+    const scale = -scroll_percent / 2 + 1;
+
+    nameContainerEle.style.transform = `scale3d(${scale}, 1, 1)`;
+    nameEle.style.transform = `scale3d(1, ${scale}, 1)`;
+
+    if (window.scrollY - (sidebarEle.clientHeight - 44.5) > 0) {
+      if (!nameEle.classList.contains('small-header')) {
+        nameEle.classList.add('small-header');
+      }
+    } else {
+      nameEle.classList.remove('small-header');
+    }
+  }
+});
