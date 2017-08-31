@@ -7,6 +7,7 @@ const Through = require('through2');
 const Merge = require('gulp-merge');
 const Sequence = require('run-sequence');
 const Connect = require('gulp-connect');
+const Package = require('./package.json');
 
 const SRC = {
   HTML: `src/templates/*.mustache`,
@@ -22,16 +23,23 @@ Gulp.task(`clean:css`, () => Del([`build/**/*.css`, `build/**/*.sass`]));
 Gulp.task(`clean:assets`, () => Del([`build/assets`]));
 Gulp.task(`clean`, [`clean:js`, `clean:html`, `clean:css`, `clean:assets`]);
 
-let dataFile = {};
-Gulp.task(`build:yaml`, () =>
+let dataFile = {
+  package: Package
+};
+Gulp.task(`build:data`, () =>
   Gulp.src(SRC.DATA).pipe(Yaml())
     .pipe(Through.obj(function (file, encoding, cb) {
       if (file.path.endsWith(`.json`)) {
-        dataFile = JSON.parse(file.contents.toString(encoding));
+        dataFile = Object.assign({},
+          JSON.parse(file.contents.toString(encoding)),
+          {
+            package: Package,
+            date: (new Date()).toISOString().split('T')[0]
+          });
         return cb(null);
       }
     })));
-Gulp.task(`build:html`, [`build:yaml`], () =>
+Gulp.task(`build:html`, [`build:data`], () =>
   // Merge(
   //   Gulp.src(SRC.HTML),
   //   Gulp.src(SRC.DATA)
