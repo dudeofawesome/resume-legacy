@@ -63,7 +63,7 @@ Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `bui
 
 Gulp.task(`watch`, [`watch:html`, `watch:sass`, `watch:assets`]);
 Gulp.task(`watch:sass`, () => Gulp.watch(SRC.SASS, [`build:sass`]));
-Gulp.task(`watch:html`, () => Gulp.watch(SRC.HTML, [`build:html`]));
+Gulp.task(`watch:html`, () => Gulp.watch([SRC.HTML, SRC.DATA], [`build:html`]));
 Gulp.task(`watch:assets`, () => Gulp.watch(SRC.ASSETS, [`build:assets`]));
 
 Gulp.task('livereload', () =>
