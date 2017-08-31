@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>Louis Orleans' Resume</title>
+    <title>Louis Orleans' Résumé</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
@@ -24,33 +24,42 @@
 
       <div class="sidebar">
         <div class="name">
-          Louis Orleans
+          {{header.name}}
         </div>
+
         <div class="contact">
-          <div class="address">
-            <address>
-              230 S. Redwood Ave. #B<br />
-              Brea, CA 92821
-            </address>
-            <i class="material-icons">home</i>
-          </div>
-          <div class="phone">
-            <a href="tel:+7143869047">714.386.9047</a>
-            <i class="material-icons">phone</i>
-          </div>
-          <div class="email">
-            <a href="mailto:louis@orleans.io">louis@orleans.io</a>
-            <i class="material-icons">mail</i>
-          </div><br />
-          <div class="url">
-            <a href="https://orleans.io">https://orleans.io</a>
-            <i class="material-icons">public</i>
-          </div>
-          <div class="github">
-            <a href="https://github.com/dudeofawesome">github/dudeofawesome</a>
-            <i class="material-icons">code</i>
-          </div>
+          {{#header.address}}
+            <div class="address">
+              <address>{{header.address}}</address>
+              <i class="material-icons">home</i>
+            </div>
+          {{/header.address}}
+          {{#header.phone}}
+            <div class="phone">
+              <a href="tel:+{{header.phone_clean}}">{{header.phone}}</a>
+              <i class="material-icons">phone</i>
+            </div>
+          {{/header.phone}}
+          {{#header.email}}
+            <div class="email">
+              <a href="mailto:{{header.email}}">{{header.email}}</a>
+              <i class="material-icons">mail</i>
+            </div>
+          {{/header.email}}
+          {{#header.website}}
+            <div class="url">
+              <a href="{{header.website}}">{{header.website}}</a>
+              <i class="material-icons">public</i>
+            </div>
+          {{/header.website}}
+          {{#header.github_username}}
+            <div class="github">
+              <a href="https://github.com/{{header.github_username}}">github/{{header.github_username}}</a>
+              <i class="material-icons">code</i>
+            </div>
+          {{/header.github_username}}
         </div>
+
         <div class="footer">
           <div class="version">
             v{{package.version}} - {{date}}
