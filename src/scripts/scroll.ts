@@ -22,7 +22,7 @@ document.addEventListener('scroll', ev => {
     scroll_percent = scroll_percent > 1 ? 1 : scroll_percent;
     scroll_percent = scroll_percent < 0 ? 0 : scroll_percent;
 
-    const scale = -scroll_percent / 2 + 1;
+    const scale = Math.cos(scroll_percent * Math.PI) / 4 + 0.75;
 
     nameContainerEle.style.transform = `scale3d(${scale}, 1, 1)`;
     nameEle.style.transform = `scale3d(1, ${scale}, 1)`;

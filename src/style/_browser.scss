@@ -24,6 +24,10 @@
 }
 
 @media screen and (max-width: 46rem) {
+  html {
+    background-color: color($colors, primary-muted);
+  }
+
   .resume {
     flex-direction: column;
   }
