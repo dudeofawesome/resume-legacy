@@ -68,6 +68,12 @@
         }
       }
     }
+
+    .footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .content .title-line {
