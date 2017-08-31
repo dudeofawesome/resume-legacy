@@ -35,8 +35,10 @@ Gulp.task(`build:data`, () =>
           {
             package: Package,
             date: (new Date()).toISOString().split('T')[0]
-          });
+          }
+        );
         dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/gi, '');
+        dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
         return cb(null);
       }
     })));

@@ -30,7 +30,7 @@
         <div class="contact">
           {{#header.address}}
             <div class="address">
-              <address>{{header.address}}</address>
+              <address>{{& header.address}}</address>
               <i class="material-icons">home</i>
             </div>
           {{/header.address}}
@@ -48,7 +48,7 @@
           {{/header.email}}
           {{#header.website}}
             <div class="url">
-              <a href="{{header.website}}">{{header.website}}</a>
+              <a href="{{& header.website}}">{{header.website}}</a>
               <i class="material-icons">public</i>
             </div>
           {{/header.website}}
