@@ -14,6 +14,7 @@ const SRC = {
   HTML_FRAGMENTS: `src/fragments/*.mustache`,
   DATA: `src/data.yaml`,
   SASS: `src/**/*.scss`,
+  TYPESCRIPT: `src/scripts/**/*.ts`,
   ASSETS: `src/assets/**/*`
 };
 
@@ -69,13 +70,36 @@ Gulp.task(`build:sass`, () =>
     .pipe(Sass().on('error', Sass.logError))
     .pipe(Connect.reload())
     .pipe(Gulp.dest('build')));
+let Typescript;
+let projectTS;
+let tsProject;
+let Sourcemaps;
+Gulp.task(`build:typescript`, () => {
+  if (!Typescript) {
+    Typescript = require('gulp-typescript');
+    projectTS = require('typescript');
+    Sourcemaps = require('gulp-sourcemaps');
+  }
+  if (!tsProject) {
+    tsProject = Typescript.createProject('tsconfig.main.json', {typescript: projectTS});
+  }
+  let tsResult = tsProject.src()
+    .pipe(Sourcemaps.init())
+    .pipe(tsProject());
 
-Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:sass`]));
+  return tsResult.js
+    .pipe(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts', destPath: 'build/scripts'}))
+    .pipe(Connect.reload())
+    .pipe(Gulp.dest('build/scripts'));
+});
 
-Gulp.task(`watch`, [`watch:html`, `watch:sass`, `watch:assets`]);
+Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:sass`, `build:typescript`]));
+
+Gulp.task(`watch`, [`watch:html`, `watch:sass`, `watch:assets`, `watch:typescript`]);
 Gulp.task(`watch:sass`, () => Gulp.watch(SRC.SASS, [`build:sass`]));
 Gulp.task(`watch:html`, () => Gulp.watch([SRC.HTML, SRC.DATA], [`build:html`]));
 Gulp.task(`watch:assets`, () => Gulp.watch(SRC.ASSETS, [`build:assets`]));
+Gulp.task(`watch:typescript`, () => Gulp.watch(SRC.TYPESCRIPT, [`build:typescript`]));
 
 Gulp.task('livereload', () =>
   Gulp.watch(['build/**/*.css', 'build/**/*.html'])
@@ -96,7 +120,7 @@ Gulp.task(`dev`, () => Sequence([`clean`], [`build`], [`watch`, `serve`]));
 
 Gulp.task(`help`, () => {
   console.log();
-  console.log(`You're probably looking for \`gulp build\``);
+  console.log(`You're probably looking for \`gulp build\` or \`gulp dev\``);
   console.log();
 });
 

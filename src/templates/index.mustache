@@ -16,15 +16,19 @@
     <link href="style/index.css" rel="stylesheet">
 
     {{> ../fragments/analytics }}
+
+    <script type="text/javascript" src="scripts/main.js" async></script>
   </head>
 
   <body>
 
     <div class="resume">
 
-      <div class="sidebar">
-        <div class="name">
-          {{header.name}}
+      <div class="sidebar" id="sidebar">
+        <div class="name" id="header">
+          <div class="name-container">
+            {{header.name}}
+          </div>
         </div>
 
         <div class="contact">
