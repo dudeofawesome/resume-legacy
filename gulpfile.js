@@ -78,6 +78,7 @@ Gulp.task(`build:typescript`, () => {
 
   return tsResult.js
     .pipe(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts', destPath: 'build/scripts'}))
+    .pipe(Connect.reload())
     .pipe(Gulp.dest('build/scripts'));
 });
 
