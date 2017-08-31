@@ -11,6 +11,10 @@
       display: block !important;
     }
   }
+
+  .buttons {
+    display: none;
+  }
 }
 
 @media print and (min-width: 34rem) {
