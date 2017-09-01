@@ -5,6 +5,11 @@ html {
   background-color: color($colors, medium);
 }
 
+::selection {
+  background-color: color($colors, primary-muted);
+  color: color-contrast($colors, primary-muted);
+}
+
 .resume {
   font-family: 'Roboto Condensed', sans-serif;
 
@@ -40,8 +45,7 @@ a {
   position: relative;
   padding: 0 0.5rem 0.3125rem;
 
-  // color: color-contrast($colors, primary);
-  color: color($colors, white);
+  color: color-contrast($colors, primary-muted);
   background-color: color($colors, primary-muted);
 
   border-right: solid color($colors, primary) 0.5rem;
@@ -49,7 +53,7 @@ a {
   text-align: right;
 
   a {
-    color: color($colors, white);
+    color: color-contrast($colors, primary-muted);
   }
 
   .name {

@@ -108,6 +108,38 @@
   @return $map;
 }
 
+@function color-brightness($color-value) {
+  @if (type-of($color-value) != color) {
+    @return color-error($color-value);
+  }
+
+  @return (red($color-value) * 0.299 + green($color-value) * 0.587 + blue($color-value) * 0.114) / 255 * 100%;
+}
+
+@function color-inverse($color-value, $dark: #000, $light: #fff) {
+  @if (type-of($color-value) != color) {
+    @return color-error($color-value);
+  }
+
+  $brightness: color-brightness($color-value);
+  $red: red($color-value);
+  $green: green($color-value);
+
+  @if ($brightness > 79) {
+    @return $dark;
+  }
+
+  @if ($green > 240) {
+    @return $dark;
+  }
+
+  @if ($red > 220 and $green > 180) {
+    @return $dark;
+  }
+
+  @return $light;
+}
+
 // Pass dark and light colors based on the mode
 // this is mostly used for toolbar buttons/titles
 //
