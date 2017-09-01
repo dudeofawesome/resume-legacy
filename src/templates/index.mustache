@@ -71,7 +71,15 @@
             </button>
           </div>
           <div class="version">
-            v{{package.version}} - {{date}}
+            {{#header.github_username}}
+              <a href="https://github.com/{{header.github_username}}/resume/releases/tag/v{{& package.version}}">
+                v{{package.version}}
+              </a>
+              - {{date}}
+            {{/header.github_username}}
+            {{^header.github_username}}
+              v{{package.version}} - {{date}}
+            {{/header.github_username}}
           </div>
         </div>
 
