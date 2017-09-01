@@ -16,7 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/del": "^3.0.0",
-    "@types/gulp": "^4.0.4",
+    "@types/gulp": "^3",
     "@types/gulp-connect": "^5.0.0",
     "@types/gulp-mustache": "^3.0.0",
     "@types/gulp-sass": "^0.0.30",

@@ -15,7 +15,8 @@
   },
   "include": [
     "*.ts",
-    "tasks/**/*.ts"
+    "tasks/**/*.ts",
+    "../../custom-typings/**/*.ts"
   ],
   "exclude": [
     "node_modules"

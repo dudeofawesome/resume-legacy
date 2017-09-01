@@ -4,15 +4,14 @@ import * as Mustache from 'gulp-mustache';
 import * as Yaml from 'gulp-yaml';
 import * as Del from 'del';
 import * as Through from 'through2';
-import * as Merge from 'gulp-merge';
 import * as Sequence from 'run-sequence';
 import * as Connect from 'gulp-connect';
 import * as Typescript from 'gulp-typescript';
 import { Project } from 'gulp-typescript';
-import * as projectTS from 'typescript';
+import * as ProjectTS from 'typescript';
 import * as Sourcemaps from 'gulp-sourcemaps';
 
-import * as Package from './package.json';
+import * as Package from '../../../package.json';
 
 import { SRC } from '../constants';
 
@@ -44,10 +43,6 @@ Gulp.task(`build:data`, () =>
 );
 
 Gulp.task(`build:html`, [`build:data`], () =>
-  // Merge(
-  //   Gulp.src(SRC.HTML),
-  //   Gulp.src(SRC.DATA)
-  // )
   Gulp.src([SRC.HTML, SRC.HTML_FRAGMENTS, SRC.DATA])
     .pipe(Through.obj(function (file, encoding, cb) {
       if (file.path.endsWith(`.json`) || file.path.match(/\/fragments\//i)) {
@@ -56,7 +51,7 @@ Gulp.task(`build:html`, [`build:data`], () =>
         return cb(null, file);
       }
     }))
-    .pipe(Mustache(dataFile, {
+    .pipe(Mustache(dataFile as any, {
       extension: '.html'
     }))
     .pipe(Connect.reload())
@@ -79,14 +74,14 @@ Gulp.task(`build:sass`, () =>
 let tsProject: Project;
 Gulp.task(`build:typescript`, () => {
   if (!tsProject) {
-    tsProject = Typescript.createProject('tsconfig.main.json', {typescript: projectTS});
+    tsProject = Typescript.createProject('tsconfig.main.json', {typescript: ProjectTS});
   }
   const tsResult = tsProject.src()
     .pipe(Sourcemaps.init())
     .pipe(tsProject());
 
   return tsResult.js
-    .pipe(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts', destPath: 'build/scripts'}))
+    .pipe(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts'}))
     .pipe(Connect.reload())
     .pipe(Gulp.dest('build/scripts'));
 });
