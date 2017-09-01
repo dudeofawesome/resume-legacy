@@ -7,11 +7,24 @@ import * as Through from 'through2';
 import * as Merge from 'gulp-merge';
 import * as Sequence from 'run-sequence';
 import * as Connect from 'gulp-connect';
+import * as Typescript from 'gulp-typescript';
+import { Project } from 'gulp-typescript';
+import * as projectTS from 'typescript';
+import * as Sourcemaps from 'gulp-sourcemaps';
+
 import * as Package from './package.json';
 
-let dataFile = {
+import { SRC } from '../constants';
+
+Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:sass`, `build:typescript`]));
+
+let dataFile: {
+  package?: {[key: string]: any};
+  header?: {[key: string]: any};
+} = {
   package: Package
 };
+
 Gulp.task(`build:data`, () =>
   Gulp.src(SRC.DATA).pipe(Yaml())
     .pipe(Through.obj(function (file, encoding, cb) {
@@ -27,7 +40,9 @@ Gulp.task(`build:data`, () =>
         dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
         return cb(null);
       }
-    })));
+    }))
+);
+
 Gulp.task(`build:html`, [`build:data`], () =>
   // Merge(
   //   Gulp.src(SRC.HTML),
@@ -45,30 +60,28 @@ Gulp.task(`build:html`, [`build:data`], () =>
       extension: '.html'
     }))
     .pipe(Connect.reload())
-    .pipe(Gulp.dest(`build`)));
+    .pipe(Gulp.dest(`build`))
+);
+
 Gulp.task(`build:assets`, () =>
   Gulp.src(SRC.ASSETS)
     .pipe(Connect.reload())
-    .pipe(Gulp.dest(`build/assets`)));
+    .pipe(Gulp.dest(`build/assets`))
+);
+
 Gulp.task(`build:sass`, () =>
   Gulp.src(SRC.SASS)
     .pipe(Sass().on('error', Sass.logError))
     .pipe(Connect.reload())
-    .pipe(Gulp.dest('build')));
-let Typescript;
-let projectTS;
-let tsProject;
-let Sourcemaps;
+    .pipe(Gulp.dest('build'))
+);
+
+let tsProject: Project;
 Gulp.task(`build:typescript`, () => {
-  if (!Typescript) {
-    Typescript = require('gulp-typescript');
-    projectTS = require('typescript');
-    Sourcemaps = require('gulp-sourcemaps');
-  }
   if (!tsProject) {
     tsProject = Typescript.createProject('tsconfig.main.json', {typescript: projectTS});
   }
-  let tsResult = tsProject.src()
+  const tsResult = tsProject.src()
     .pipe(Sourcemaps.init())
     .pipe(tsProject());
 
@@ -77,5 +90,3 @@ Gulp.task(`build:typescript`, () => {
     .pipe(Connect.reload())
     .pipe(Gulp.dest('build/scripts'));
 });
-
-Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:sass`, `build:typescript`]));
