@@ -3,6 +3,7 @@
 
 html {
   background-color: color($colors, medium);
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
