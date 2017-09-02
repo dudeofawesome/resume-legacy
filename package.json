@@ -1,11 +1,16 @@
 {
   "name": "resume",
+  "short_name": "Louis Orleans' Résumé",
   "version": "0.1.4",
-  "description": "Louis Orleans' resume",
+  "description": "Experienced Full-Stack Software Engineer",
   "main": "index.js",
   "repository": "https://github.com/dudeofawesome/resume.git",
-  "author": "Louis Orleans <louis@orleans.io>",
-  "license": "UNLICENSED",
+  "author": {
+    "name": "Louis Orleans",
+    "email": "louis@orleans.io",
+    "url": "https://orleans.io"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "npm run watch",
     "dev": "gulp dev",
@@ -15,6 +20,15 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/del": "^3.0.0",
+    "@types/google.analytics": "^0.0.35",
+    "@types/gulp": "^3",
+    "@types/gulp-connect": "^5.0.0",
+    "@types/gulp-mustache": "^3.0.0",
+    "@types/gulp-sass": "^0.0.30",
+    "@types/gulp-sourcemaps": "^0.0.31",
+    "@types/run-sequence": "^0.0.29",
+    "@types/through2": "^2.0.33",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
@@ -31,6 +45,7 @@
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
     "through2": "^2.0.3",
+    "ts-node": "^3.3.0",
     "typescript": "^2.4.2"
   }
 }
