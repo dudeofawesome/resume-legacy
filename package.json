@@ -1,6 +1,7 @@
 {
   "name": "resume",
-  "short_name": "Louis Orleans' Résumé",
+  "short_name": "Résumé",
+  "long_name": "Louis Orleans' Résumé",
   "version": "0.1.5",
   "description": "Experienced Full-Stack Software Engineer",
   "main": "index.js",

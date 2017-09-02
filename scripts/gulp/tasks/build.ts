@@ -54,6 +54,7 @@ Gulp.task(`build:manifest`, () =>
       extension: ''
     }))
     .pipe(Yaml())
+    .pipe(Connect.reload())
     .pipe(Gulp.dest(`build`))
     // .pipe(Through.obj((file, encoding, cb) => {
     //   if (file.path.endsWith(`.json`)) {
