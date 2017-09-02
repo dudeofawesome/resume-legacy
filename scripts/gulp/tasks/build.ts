@@ -28,13 +28,18 @@ Gulp.task(`build:data`, () =>
 Gulp.src(SRC.DATA).pipe(Yaml())
   .pipe(Through.obj((file, encoding, cb) => {
     if (file.path.endsWith(`.json`)) {
-      dataFile = Object.assign({},
-        JSON.parse(file.contents.toString(encoding)),
-        {
-          package: Package,
-          date: (new Date()).toISOString().split('T')[0]
-        }
-      );
+      dataFile = {
+        ...JSON.parse(file.contents.toString(encoding)),
+        package: {
+          ...Package,
+          author: {
+            ...Package.author,
+            first_name: Package.author.name.split(' ')[0],
+            last_name: Package.author.name.split(' ')[1]
+          }
+        },
+        date: (new Date()).toISOString().split('T')[0]
+      };
       dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/gi, '');
       dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
       return cb(null);
