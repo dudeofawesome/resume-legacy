@@ -51,6 +51,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/google.analytics@^0.0.35":
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@types/google.analytics/-/google.analytics-0.0.35.tgz#c55b5b6a4b4596841635cf4a385d1b4733f67088"
+
 "@types/gulp-connect@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@types/gulp-connect/-/gulp-connect-5.0.0.tgz#8e4ebbbd924b330e6a6312f96f689e2bd73eabea"

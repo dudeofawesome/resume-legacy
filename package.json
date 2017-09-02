@@ -17,6 +17,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/del": "^3.0.0",
+    "@types/google.analytics": "^0.0.35",
     "@types/gulp": "^3",
     "@types/gulp-connect": "^5.0.0",
     "@types/gulp-mustache": "^3.0.0",
