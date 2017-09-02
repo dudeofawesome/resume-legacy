@@ -1,12 +1,16 @@
 {
   "name": "resume",
-  "short_name": "Résumé",
+  "short_name": "Louis Orleans' Résumé",
   "version": "0.1.4",
   "description": "Louis Orleans' Résumé",
   "main": "index.js",
   "repository": "https://github.com/dudeofawesome/resume.git",
-  "author": "Louis Orleans <louis@orleans.io>",
-  "license": "UNLICENSED",
+  "author": {
+    "name": "Louis Orleans",
+    "email": "louis@orleans.io",
+    "url": "https://orleans.io"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "npm run watch",
     "dev": "gulp dev",

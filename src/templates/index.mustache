@@ -2,12 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>Louis Orleans' Résumé</title>
+    <title>{{& package.short_name}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#920000">
+
+    {{> ../fragments/open-graph }}
 
     {{> ../fragments/icons }}
 
@@ -27,7 +29,7 @@
       <div class="sidebar" id="sidebar">
         <div class="name" id="header">
           <div class="name-container">
-            {{header.name}}
+            {{package.author.name}}
           </div>
         </div>
 
@@ -44,18 +46,18 @@
               <i class="material-icons">phone</i>
             </div>
           {{/header.phone}}
-          {{#header.email}}
+          {{#package.author.email}}
             <div class="email">
-              <a href="mailto:{{header.email}}" name="Email">{{header.email}}</a>
+              <a href="mailto:{{package.author.email}}" name="Email">{{package.author.email}}</a>
               <i class="material-icons">mail</i>
             </div>
-          {{/header.email}}
-          {{#header.website}}
+          {{/package.author.email}}
+          {{#package.author.url}}
             <div class="url">
-              <a href="{{& header.website}}" name="Website">{{header.website}}</a>
+              <a href="{{& package.author.url}}" name="Website">{{package.author.url}}</a>
               <i class="material-icons">public</i>
             </div>
-          {{/header.website}}
+          {{/package.author.url}}
           {{#header.github_username}}
             <div class="github">
               <a href="https://github.com/{{header.github_username}}" name="GitHub">github/{{header.github_username}}</a>

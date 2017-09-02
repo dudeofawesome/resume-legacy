@@ -1,11 +1,8 @@
 header:
-  name: Louis Orleans
-  email: louis@orleans.io
   phone: 714.386.9047
   address: |
     230 S. Redwood Ave. #B
     Brea, CA 92821
-  website: https://orleans.io
   github_username: dudeofawesome
 experience:
   - title: Senior Software Engineer, Castifi
