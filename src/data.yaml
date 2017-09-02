@@ -13,9 +13,9 @@ experience:
     duration: 2016 - present
     description: |
       Architected and implemented casting and on-set management platform for film background actors.
-      Built <a href="https://app.castifi.com">web app</a>,
-        <a href="https://play.google.com/store/apps/details?id=com.castifi">Android app</a>,
-        <a href="https://itunes.apple.com/us/app/castifi/id1176896442?mt=8">iOS app</a>, and API server.
+      Built <a href="https://app.castifi.com" name="Castifi Web">web app</a>,
+        <a href="https://play.google.com/store/apps/details?id=com.castifi" name="Castifi Android">Android app</a>,
+        <a href="https://itunes.apple.com/us/app/castifi/id1176896442?mt=8" name="Castifi iOS">iOS app</a>, and API server.
       Testing and building with Travis CI.
       Deployed with AWS S3, CloudFront, Heroku.
       Contributed to Ionic, Cordova, Ionic Native, LoopBack, DefinitelyTyped, and other open source projects.
@@ -39,7 +39,7 @@ experience:
       Home for Cardboard is an alternative home screen to be used with a virtual reality headset, such as Google Cardboard.
       It enables users to use their phone without the need to constantly remove it from the headset.
       Over 20,000 people, with 100+ daily downloads.
-      <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.cardboardhome">
+      <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.cardboardhome" name="Home for Cardboard">
         Available on the Google Play Store.
       </a>
   - title: Android app, Sole Champion Mobile Game
@@ -49,7 +49,9 @@ experience:
       Developed an augmented reality game.
       Player places a card on table, which their phone recognizes, and renders the game on top of their table.
       Players can then move their phone for any other view of the game.
-      <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.solechamp">Available on the Google Play Store.</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.solechamp" name="Sole Champion">
+        Available on the Google Play Store.
+      </a>
   - title: High School Information Technology Volunteer
     location: Brea Olinda High School
     duration: 2011 - 2014

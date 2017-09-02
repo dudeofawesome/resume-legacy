@@ -40,25 +40,25 @@
           {{/header.address}}
           {{#header.phone}}
             <div class="phone">
-              <a href="tel:+{{header.phone_clean}}">{{header.phone}}</a>
+              <a href="tel:+{{header.phone_clean}}" name="Phone">{{header.phone}}</a>
               <i class="material-icons">phone</i>
             </div>
           {{/header.phone}}
           {{#header.email}}
             <div class="email">
-              <a href="mailto:{{header.email}}">{{header.email}}</a>
+              <a href="mailto:{{header.email}}" name="Email">{{header.email}}</a>
               <i class="material-icons">mail</i>
             </div>
           {{/header.email}}
           {{#header.website}}
             <div class="url">
-              <a href="{{& header.website}}">{{header.website}}</a>
+              <a href="{{& header.website}}" name="Website">{{header.website}}</a>
               <i class="material-icons">public</i>
             </div>
           {{/header.website}}
           {{#header.github_username}}
             <div class="github">
-              <a href="https://github.com/{{header.github_username}}">github/{{header.github_username}}</a>
+              <a href="https://github.com/{{header.github_username}}" name="GitHub">github/{{header.github_username}}</a>
               <i class="material-icons">code</i>
             </div>
           {{/header.github_username}}
@@ -72,7 +72,7 @@
           </div>
           <div class="version">
             {{#header.github_username}}
-              <a href="https://github.com/{{header.github_username}}/resume/releases/tag/v{{& package.version}}">v{{package.version}}</a>
+              <a href="https://github.com/{{header.github_username}}/resume/releases/tag/v{{& package.version}}" name="GitHub Résumé">v{{package.version}}</a>
               - {{date}}
             {{/header.github_username}}
             {{^header.github_username}}
