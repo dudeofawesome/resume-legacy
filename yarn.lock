@@ -19,6 +19,134 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@types/chokidar@*":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@types/chokidar/-/chokidar-1.7.2.tgz#7c6da2d5bd6a47c9bce0f09b904a30770581f605"
+  dependencies:
+    "@types/node" "*"
+
+"@types/connect@*":
+  version "3.4.31"
+  resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.31.tgz#1f92d6b117ecc05076c49ecd024f7976e528bad9"
+  dependencies:
+    "@types/node" "*"
+
+"@types/del@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/del/-/del-3.0.0.tgz#1c8cd8b6e38da3b572352ca8eaf5527931426288"
+  dependencies:
+    "@types/glob" "*"
+
+"@types/glob-stream@*":
+  version "3.1.31"
+  resolved "https://registry.yarnpkg.com/@types/glob-stream/-/glob-stream-3.1.31.tgz#015842260c01dab3b56578d8b37de2e57483d4ad"
+  dependencies:
+    "@types/glob" "*"
+    "@types/node" "*"
+
+"@types/glob@*":
+  version "5.0.32"
+  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-5.0.32.tgz#aec5cfe987c72f099fdb1184452986aa506d5e8f"
+  dependencies:
+    "@types/minimatch" "*"
+    "@types/node" "*"
+
+"@types/gulp-connect@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/gulp-connect/-/gulp-connect-5.0.0.tgz#8e4ebbbd924b330e6a6312f96f689e2bd73eabea"
+  dependencies:
+    "@types/connect" "*"
+
+"@types/gulp-mustache@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/gulp-mustache/-/gulp-mustache-3.0.0.tgz#161e8234396739f56a2655d3f1ac325f4c5955d3"
+  dependencies:
+    "@types/node" "*"
+
+"@types/gulp-sass@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/gulp-sass/-/gulp-sass-0.0.30.tgz#86f33ac49fe9ed28aa686549d6d48c0223d90a14"
+  dependencies:
+    "@types/node" "*"
+
+"@types/gulp-sourcemaps@^0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@types/gulp-sourcemaps/-/gulp-sourcemaps-0.0.31.tgz#08347f899f4862f63f7586c997aacd41af21c72a"
+  dependencies:
+    "@types/node" "*"
+
+"@types/gulp@*":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-4.0.4.tgz#753ffe5b0ddaf0c9a60101b346141bb80e602f25"
+  dependencies:
+    "@types/chokidar" "*"
+    "@types/undertaker" "*"
+    "@types/vinyl-fs" "*"
+
+"@types/gulp@^3":
+  version "3.8.33"
+  resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-3.8.33.tgz#b1b076820738c9c4eb7808cd926bff1683e1c2ab"
+  dependencies:
+    "@types/node" "*"
+    "@types/orchestrator" "*"
+    "@types/vinyl" "*"
+
+"@types/minimatch@*":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.1.tgz#b683eb60be358304ef146f5775db4c0e3696a550"
+
+"@types/node@*":
+  version "8.0.26"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.26.tgz#4d58be925306fd22b1141085535a0268b8beb189"
+
+"@types/orchestrator@*":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@types/orchestrator/-/orchestrator-0.3.0.tgz#bf84a1699c9330d4fe89cd81263e8fc09fb32978"
+  dependencies:
+    "@types/node" "*"
+    "@types/q" "^0"
+
+"@types/q@^0":
+  version "0.0.37"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.37.tgz#7d6a934b35ee2f0ed0646d286eba559599021c9e"
+
+"@types/run-sequence@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/run-sequence/-/run-sequence-0.0.29.tgz#6ad0f7383136e13925322e69fc41db77b30b2075"
+  dependencies:
+    "@types/gulp" "*"
+    "@types/node" "*"
+
+"@types/through2@^2.0.33":
+  version "2.0.33"
+  resolved "https://registry.yarnpkg.com/@types/through2/-/through2-2.0.33.tgz#1ff2e88a100dfb5b140e7bb98791f1194400d131"
+  dependencies:
+    "@types/node" "*"
+
+"@types/undertaker-registry@*":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/undertaker-registry/-/undertaker-registry-1.0.0.tgz#6f61a0be75a22e9ef62df68b480c68bce344fe5f"
+
+"@types/undertaker@*":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/undertaker/-/undertaker-1.1.2.tgz#cf0f62cdcbdf62ad9f70a4d78f81869a5c349a09"
+  dependencies:
+    "@types/undertaker-registry" "*"
+
+"@types/vinyl-fs@*":
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/@types/vinyl-fs/-/vinyl-fs-2.4.7.tgz#9165d331758b351641debcfe656a133597bacb2f"
+  dependencies:
+    "@types/glob-stream" "*"
+    "@types/node" "*"
+    "@types/vinyl" "*"
+
+"@types/vinyl@*":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/vinyl/-/vinyl-2.0.1.tgz#6b414dfdcd4a785e8e76e87565ed29e79490d9b7"
+  dependencies:
+    "@types/node" "*"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -339,7 +467,7 @@ chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^2.0.1, chalk@^2.1.0:
+chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.1.0.tgz#ac5becf14fa21b99c6c92ca7a7d7cfd5b17e743e"
   dependencies:
@@ -680,6 +808,10 @@ detect-file@^0.1.0:
 detect-newline@2.X:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
+
+diff@^3.1.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.0.tgz#056695150d7aa93237ca7e378ac3b1682b7963b9"
 
 duplexer2@0.0.2:
   version "0.0.2"
@@ -1967,6 +2099,10 @@ lru-queue@0.1:
   dependencies:
     es5-ext "~0.10.2"
 
+make-error@^1.1.1:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.0.tgz#52ad3a339ccf10ce62b4040b708fe707244b8b96"
+
 map-cache@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
@@ -2887,6 +3023,12 @@ source-map-resolve@^0.3.0:
     source-map-url "~0.3.0"
     urix "~0.1.0"
 
+source-map-support@^0.4.0:
+  version "0.4.16"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.16.tgz#16fecf98212467d017d586a2af68d628b9421cd8"
+  dependencies:
+    source-map "^0.5.6"
+
 source-map-url@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.3.0.tgz#7ecaf13b57bcd09da8a40c5d269db33799d4aaf9"
@@ -3056,11 +3198,19 @@ strip-bom@^2.0.0:
   dependencies:
     is-utf8 "^0.2.0"
 
+strip-bom@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
+
 strip-indent@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/strip-indent/-/strip-indent-1.0.1.tgz#0c7962a6adefa7bbd4ac366460a638552ae1a0a2"
   dependencies:
     get-stdin "^4.0.1"
+
+strip-json-comments@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
 style-search@^0.1.0:
   version "0.1.0"
@@ -3238,6 +3388,28 @@ trim-newlines@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-1.0.0.tgz#5887966bb582a4503a41eb524f7d35011815a613"
 
+ts-node@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-3.3.0.tgz#c13c6a3024e30be1180dd53038fc209289d4bf69"
+  dependencies:
+    arrify "^1.0.0"
+    chalk "^2.0.0"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    source-map-support "^0.4.0"
+    tsconfig "^6.0.0"
+    v8flags "^3.0.0"
+    yn "^2.0.0"
+
+tsconfig@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/tsconfig/-/tsconfig-6.0.0.tgz#6b0e8376003d7af1864f8df8f89dd0059ffcd032"
+  dependencies:
+    strip-bom "^3.0.0"
+    strip-json-comments "^2.0.0"
+
 tsscmp@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/tsscmp/-/tsscmp-1.0.5.tgz#7dc4a33af71581ab4337da91d85ca5427ebd9a97"
@@ -3331,6 +3503,12 @@ uuid@^3.0.0:
 v8flags@^2.0.2:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/v8flags/-/v8flags-2.1.1.tgz#aab1a1fa30d45f88dd321148875ac02c0b55e5b4"
+  dependencies:
+    user-home "^1.1.1"
+
+v8flags@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/v8flags/-/v8flags-3.0.0.tgz#4be9604488e0c4123645def705b1848d16b8e01f"
   dependencies:
     user-home "^1.1.1"
 
@@ -3511,3 +3689,7 @@ yargs@^7.0.0:
     which-module "^1.0.0"
     y18n "^3.2.1"
     yargs-parser "^5.0.0"
+
+yn@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
