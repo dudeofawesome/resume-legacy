@@ -15,7 +15,7 @@ import * as Package from '../../../package.json';
 
 import { SRC } from '../constants';
 
-Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:sass`, `build:typescript`]));
+Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:manifest`, `build:sass`, `build:typescript`]));
 
 let dataFile: {
   package?: {[key: string]: any};
@@ -25,21 +25,44 @@ let dataFile: {
 };
 
 Gulp.task(`build:data`, () =>
-  Gulp.src(SRC.DATA).pipe(Yaml())
-    .pipe(Through.obj(function (file, encoding, cb) {
-      if (file.path.endsWith(`.json`)) {
-        dataFile = Object.assign({},
-          JSON.parse(file.contents.toString(encoding)),
-          {
-            package: Package,
-            date: (new Date()).toISOString().split('T')[0]
-          }
-        );
-        dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/gi, '');
-        dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
-        return cb(null);
-      }
+Gulp.src(SRC.DATA).pipe(Yaml())
+  .pipe(Through.obj((file, encoding, cb) => {
+    if (file.path.endsWith(`.json`)) {
+      dataFile = Object.assign({},
+        JSON.parse(file.contents.toString(encoding)),
+        {
+          package: Package,
+          date: (new Date()).toISOString().split('T')[0]
+        }
+      );
+      dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/gi, '');
+      dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
+      return cb(null);
+    }
+  }))
+);
+
+Gulp.task(`build:manifest`, () =>
+  Gulp.src(SRC.MANIFEST)
+    .pipe(Mustache(dataFile as any, {
+      extension: ''
     }))
+    .pipe(Yaml())
+    .pipe(Gulp.dest(`build`))
+    // .pipe(Through.obj((file, encoding, cb) => {
+    //   if (file.path.endsWith(`.json`)) {
+    //     dataFile = Object.assign({},
+    //       JSON.parse(file.contents.toString(encoding)),
+    //       {
+    //         package: Package,
+    //         date: (new Date()).toISOString().split('T')[0]
+    //       }
+    //     );
+    //     dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/gi, '');
+    //     dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
+    //     return cb(null);
+    //   }
+    // }))
 );
 
 Gulp.task(`build:html`, [`build:data`], () =>
