@@ -1,7 +1,8 @@
 {
   "name": "resume",
+  "short_name": "Résumé",
   "version": "0.1.4",
-  "description": "Louis Orleans' resume",
+  "description": "Louis Orleans' Résumé",
   "main": "index.js",
   "repository": "https://github.com/dudeofawesome/resume.git",
   "author": "Louis Orleans <louis@orleans.io>",

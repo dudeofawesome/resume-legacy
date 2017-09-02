@@ -15,6 +15,7 @@
   "files.associations": {
     ".env": "dotenv",
     "*.travis": "yaml",
-    "*.mustache": "handlebars"
+    "*.mustache": "handlebars",
+    "*.yaml.mustache": "yaml"
   }
 }
