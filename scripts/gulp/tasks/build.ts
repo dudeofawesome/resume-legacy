@@ -10,10 +10,11 @@ import * as Typescript from 'gulp-typescript';
 import { Project } from 'gulp-typescript';
 import * as ProjectTS from 'typescript';
 import * as Sourcemaps from 'gulp-sourcemaps';
+import * as Uglify from 'gulp-uglify';
 
 import * as Package from '../../../package.json';
 
-import { SRC } from '../constants';
+import { SRC, PROD, IF_PROD, IF_DEV } from '../constants';
 
 Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:manifest`, `build:sass`, `build:typescript`]));
 
@@ -101,17 +102,15 @@ Gulp.task(`build:sass`, () =>
     .pipe(Gulp.dest('build'))
 );
 
-let tsProject: Project;
+const tsProject: Project = Typescript.createProject(PROD ? 'tsconfig.prod.json' : 'tsconfig.main.json', {typescript: ProjectTS});
 Gulp.task(`build:typescript`, () => {
-  if (!tsProject) {
-    tsProject = Typescript.createProject('tsconfig.main.json', {typescript: ProjectTS});
-  }
   const tsResult = tsProject.src()
     .pipe(Sourcemaps.init())
     .pipe(tsProject());
 
   return tsResult.js
-    .pipe(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts'}))
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts'})))
+    .pipe(IF_PROD(Uglify()))
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest('build/scripts'));
 });

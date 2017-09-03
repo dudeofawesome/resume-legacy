@@ -11,7 +11,8 @@
     ],
     "module": "amd",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "sourceMap": false,
+    "removeComments": true,
     "allowUnreachableCode": false,
     "target": "ES5",
     "outFile": "main.js"
