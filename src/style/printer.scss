@@ -21,6 +21,17 @@
   .buttons {
     display: none;
   }
+
+  header,
+  .title-line {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  section li {
+    break-inside: avoid;
+    break-inside: avoid-page;
+  }
 }
 
 $chrome-print-width: 5.9in;
