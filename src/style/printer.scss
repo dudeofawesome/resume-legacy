@@ -2,6 +2,12 @@
 @import 'functions';
 
 @media print {
+  @page {
+    margin: 0 !important;
+    size: letter portrait;
+    marks: none;
+  }
+
   .sidebar {
     color: color($colors, white) !important;
     background-color: color($colors, primary-muted) !important;
@@ -15,16 +21,34 @@
   .buttons {
     display: none;
   }
+
+  header,
+  .title-line {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  section li {
+    break-inside: avoid;
+    break-inside: avoid-page;
+  }
 }
 
-@media print and (min-width: 34rem) {
+$chrome-print-width: 5.9in;
+@media print and (max-width: $chrome-print-width) and (min-width: $chrome-print-width - 0.2in) {
   html {
     font-size: 15px;
   }
 }
-
-@media print and (min-width: 46rem) {
+@media print and (min-width: $chrome-print-width) and (max-width: $chrome-print-width + 0.2in) {
   html {
-    font-size: 14px;
+    font-size: 16px;
+  }
+}
+
+$safari-print-width: 15in;
+@media print and (max-width: $safari-print-width) and (min-width: $safari-print-width - 0.2in) {
+  html {
+    font-size: 13px;
   }
 }
