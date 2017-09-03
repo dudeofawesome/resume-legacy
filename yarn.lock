@@ -481,7 +481,7 @@ bufferstreams@1.1.0:
   dependencies:
     readable-stream "^2.0.2"
 
-bufferstreams@^1.1.0:
+bufferstreams@^1.0.1, bufferstreams@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/bufferstreams/-/bufferstreams-1.1.1.tgz#0161373060ac5988eff99058731114f6e195d51e"
   dependencies:
@@ -550,6 +550,12 @@ chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0:
     ansi-styles "^3.1.0"
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
+
+check-type@^0.4.11:
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/check-type/-/check-type-0.4.11.tgz#abe3f534a51d31f5ce5726347bb74c0d0f910ccf"
+  dependencies:
+    underscore "1.6.0"
 
 circular-json@^0.3.1:
   version "0.3.3"
@@ -1112,6 +1118,10 @@ extend-shallow@^2.0.1:
   dependencies:
     is-extendable "^0.1.0"
 
+extend@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/extend/-/extend-2.0.1.tgz#1ee8010689e7395ff9448241c98652bc759a8260"
+
 extend@^3.0.0, extend@~3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
@@ -1612,7 +1622,7 @@ gulp-uglify@^3.0.0:
     uglify-js "^3.0.5"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-util@3.0.8, gulp-util@^3.0, gulp-util@^3.0.0, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@^3.0.8, gulp-util@~3.0.7, gulp-util@~3.0.8:
+gulp-util@3.0.8, gulp-util@^3.0, gulp-util@^3.0.0, gulp-util@^3.0.5, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@^3.0.8, gulp-util@~3.0.7, gulp-util@~3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -1634,6 +1644,17 @@ gulp-util@3.0.8, gulp-util@^3.0, gulp-util@^3.0.0, gulp-util@^3.0.6, gulp-util@^
     replace-ext "0.0.1"
     through2 "^2.0.0"
     vinyl "^0.5.0"
+
+gulp-yaml-validate@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gulp-yaml-validate/-/gulp-yaml-validate-1.0.2.tgz#84fa5ca49986811c47782227178c43d6cb62b844"
+  dependencies:
+    bufferstreams "^1.0.1"
+    check-type "^0.4.11"
+    extend "^2.0.1"
+    gulp-util "^3.0.5"
+    js-yaml "^3.3.1"
+    through2 "^2.0.0"
 
 gulp-yaml@^1.0.1:
   version "1.0.1"
@@ -2035,7 +2056,7 @@ js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@^3.4.3:
+js-yaml@^3.3.1, js-yaml@^3.4.3:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.9.1.tgz#08775cebdfdd359209f0d2acd383c8f86a6904a0"
   dependencies:
@@ -3707,6 +3728,10 @@ uid-safe@~2.0.0:
 unc-path-regex@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
+
+underscore@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.6.0.tgz#8b38b10cacdef63337b8b24e4ff86d45aea529a8"
 
 union@~0.4.3:
   version "0.4.6"
