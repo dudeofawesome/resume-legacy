@@ -104,7 +104,9 @@ Gulp.task(`build:assets`, () =>
 
 Gulp.task(`build:sass`, () =>
   Gulp.src(SRC.SASS)
-    .pipe(Sass().on('error', Sass.logError))
+    .pipe(Sass({
+      outputStyle: PROD ? 'compressed' : 'nested'
+    }).on('error', Sass.logError))
     .pipe(Connect.reload())
     .pipe(Gulp.dest('build'))
 );
