@@ -1,7 +1,7 @@
 (function () {
   const continueNavigation = (url: string): () => void => {
     return () => window.location.href = url;
-  }
+  };
 
   const listener = (ev: MouseEvent) => {
     const anchor: HTMLAnchorElement = ev.srcElement as HTMLAnchorElement;

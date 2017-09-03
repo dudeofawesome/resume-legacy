@@ -103,8 +103,6 @@
       "check-separator",
       "check-type",
       "check-typecast"
-    ],
-
-    "no-access-missing-member": true
+    ]
   }
 }
