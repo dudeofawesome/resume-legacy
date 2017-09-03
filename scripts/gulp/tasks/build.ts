@@ -11,6 +11,7 @@ import { Project } from 'gulp-typescript';
 import * as ProjectTS from 'typescript';
 import * as Sourcemaps from 'gulp-sourcemaps';
 import * as Uglify from 'gulp-uglify';
+import * as HTMLMin from 'gulp-htmlmin';
 
 import * as Package from '../../../package.json';
 
@@ -85,6 +86,12 @@ Gulp.task(`build:html`, [`build:data`], () =>
     .pipe(Mustache(dataFile as any, {
       extension: '.html'
     }))
+    .pipe(IF_PROD(HTMLMin({
+      collapseWhitespace: true,
+      conservativeCollapse: true,
+      decodeEntities: true,
+      removeComments: true
+    } as any)))
     .pipe(Connect.reload())
     .pipe(Gulp.dest(`build`))
 );
