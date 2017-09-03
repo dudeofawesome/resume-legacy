@@ -7,7 +7,7 @@ import * as TSLint from 'gulp-tslint';
 
 import { SRC } from '../constants';
 
-Gulp.task(`lint`, [`clean`], () => Sequence([`lint:data`, `lint:sass`, `lint:typescript`]));
+Gulp.task(`lint`, () => Sequence([`lint:data`, `lint:sass`, `lint:typescript`]));
 
 Gulp.task(`lint:data`, () =>
   Gulp.src(SRC.DATA)
