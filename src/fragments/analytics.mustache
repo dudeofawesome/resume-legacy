@@ -24,9 +24,10 @@
         // Send Print Data to Google Analytics
         ga('send', {
           hitType: 'event',
-          eventCategory: 'Page Printed',
-          eventAction: printData,
-          eventLabel: window.location.pathname
+          eventCategory: 'Page Print',
+          eventAction: printData || 'unknown',
+          eventLabel: window.location.pathname,
+          eventValue: 100
         });
         // Clear the attribute, if not printing from the menu can be tracked wrongly.
         html.removeAttribute('printType');
