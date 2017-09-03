@@ -1,3 +1,5 @@
+import * as Through from 'through2';
+
 export const SRC = {
   HTML: `src/templates/*.mustache`,
   HTML_FRAGMENTS: `src/fragments/*.mustache`,
@@ -7,3 +9,11 @@ export const SRC = {
   TYPESCRIPT: `src/scripts/**/*.ts`,
   ASSETS: `src/assets/**/*`
 };
+
+export const PROD = process.env.NODE_ENV === 'production';
+console.log(`Environment: ${PROD ? 'PRODUCTION' : 'DEVELOP'}`);
+
+export const NOOP_PIPE = Through.obj((chunk, enc, cb) => cb(null, chunk));
+
+export const IF_PROD = (pipe: NodeJS.ReadWriteStream, prod: boolean = true) => PROD === prod ? pipe : NOOP_PIPE
+export const IF_DEV = (pipe: NodeJS.ReadWriteStream) => IF_PROD(pipe, false)
