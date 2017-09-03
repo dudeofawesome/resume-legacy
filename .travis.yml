@@ -34,7 +34,7 @@ branches:
     - /^release\/.*$/
 
 before_script:
-  - gulp build
+  - NODE_ENV=production gulp build
 
 script:
   - yarn test
