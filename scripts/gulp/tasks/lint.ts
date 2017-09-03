@@ -7,20 +7,11 @@ import * as TSLint from 'gulp-tslint';
 
 import { SRC } from '../constants';
 
-Gulp.task(`lint`, [`clean`], () => Sequence([`lint:manifest`, `lint:sass`, `lint:typescript`]));
+Gulp.task(`lint`, [`clean`], () => Sequence([`lint:data`, `lint:sass`, `lint:typescript`]));
 
 Gulp.task(`lint:data`, () =>
   Gulp.src(SRC.DATA)
     .pipe(YamlValidate())
-);
-
-Gulp.task(`lint:manifest`, () =>
-  Gulp.src(SRC.MANIFEST)
-//     .pipe(Mustache(dataFile as any, {
-//       extension: ''
-//     }))
-//     .pipe(Yaml())
-//     .pipe(Gulp.dest(`lint`))
 );
 
 Gulp.task(`lint:sass`, () =>
