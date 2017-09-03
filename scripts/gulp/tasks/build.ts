@@ -1,5 +1,6 @@
 import * as Gulp from 'gulp';
 import * as Sass from 'gulp-sass';
+import * as Autoprefixer from 'gulp-autoprefixer';
 import * as Mustache from 'gulp-mustache';
 import * as Yaml from 'gulp-yaml';
 import * as Through from 'through2';
@@ -106,6 +107,7 @@ Gulp.task(`build:sass`, () =>
     .pipe(Sass({
       outputStyle: PROD ? 'compressed' : 'nested'
     }).on('error', Sass.logError))
+    .pipe(Autoprefixer())
     .pipe(Connect.reload())
     .pipe(Gulp.dest('build'))
 );
