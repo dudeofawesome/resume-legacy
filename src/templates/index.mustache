@@ -90,78 +90,31 @@
 
       <div class="content">
 
-        <section>
-          <header>Experience</header>
+        {{#sections}}
+          <section>
+            <header>{{title}}</header>
 
-          <ul>
-            {{#experience}}
-              <li>
-                <div class="title-line">
-                  <div class="title">
-                    {{& title}}
-                  </div>
-                  <div class="location-duration">
-                    {{& location}} — {{& duration}}
-                  </div>
-                </div>
-                {{#description}}
-                  <p class="description">
-                    {{& description}}
-                  </p>
-                {{/description}}
-              </li>
-            {{/experience}}
-          </ul>
-        </section>
-
-        <section>
-          <header>Accomplishments</header>
-
-          <ul>
-            {{#accomplishments}}
-              <li>
-                <div class="title-line">
-                  <div class="title">
-                    {{& title}}
-                  </div>
-                  <div class="location-duration">
-                    {{& location}} — {{& duration}}
-                  </div>
-                </div>
-                {{#description}}
-                  <p class="description">
-                    {{& description}}
-                  </p>
-                {{/description}}
-              </li>
-            {{/accomplishments}}
-          </ul>
-
-        </section>
-
-        <section>
-          <header>Education</header>
-
-          <ul>
-            {{#education}}
-              <li>
-                <div class="title-line">
-                  <div class="title">
-                    {{& title}}
-                  </div>
-                  <div class="location-duration">
-                    {{& location}} — {{& duration}}
-                  </div>
-                </div>
-                {{#description}}
-                  <p class="description">
-                    {{& description}}
-                  </p>
-                {{/description}}
-              </li>
-            {{/education}}
-          </ul>
-        </section>
+            {{#items}}
+              <ul>
+                  <li>
+                    <div class="title-line">
+                      <div class="title">
+                        {{& title}}
+                      </div>
+                      <div class="location-duration">
+                        {{& location}} — {{& duration}}
+                      </div>
+                    </div>
+                    {{#description}}
+                      <p class="description">
+                        {{& description}}
+                      </p>
+                    {{/description}}
+                  </li>
+              </ul>
+            {{/items}}
+          </section>
+        {{/sections}}
 
         <section>
           <header>Skills</header>
