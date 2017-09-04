@@ -56,7 +56,7 @@ Gulp.task(`build:manifest`, () =>
       extension: ''
     }))
     .pipe(Yaml())
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest(`build`))
     // .pipe(Through.obj((file, encoding, cb) => {
     //   if (file.path.endsWith(`.json`)) {
@@ -92,13 +92,13 @@ Gulp.task(`build:html`, [`build:data`], () =>
       decodeEntities: true,
       removeComments: true
     } as any)))
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest(`build`))
 );
 
 Gulp.task(`build:assets`, () =>
   Gulp.src(SRC.ASSETS)
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest(`build/assets`))
 );
 
@@ -108,7 +108,7 @@ Gulp.task(`build:sass`, () =>
       outputStyle: PROD ? 'compressed' : 'nested'
     }).on('error', Sass.logError))
     .pipe(Autoprefixer())
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest('build'))
 );
 
