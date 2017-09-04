@@ -8,7 +8,7 @@ export const SRC = {
   MANIFEST: `src/config/manifest.yaml.mustache`,
   SASS: `src/**/*.scss`,
   TYPESCRIPT: `src/scripts/**/*.ts`,
-  ASSETS: `src/assets/**/*`
+  ASSETS: [`src/assets/**/*`, `node_modules/mdi/fonts/*`]
 };
 
 export const PROD = process.env.NODE_ENV === 'production';
