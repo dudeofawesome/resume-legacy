@@ -5,7 +5,7 @@
   const contactEle: HTMLDivElement = document.querySelector('#sidebar .contact') as HTMLDivElement;
 
   let isSmallScreen: boolean = false;
-  let mq = window.matchMedia(`screen and (max-width: 46rem)`);
+  const mq = window.matchMedia(`screen and (max-width: 46rem)`);
   isSmallScreen = mq.matches;
   mq.addListener(mq => {
     isSmallScreen = mq.matches;
