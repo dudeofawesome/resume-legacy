@@ -12,39 +12,52 @@ import * as ProjectTS from 'typescript';
 import * as Sourcemaps from 'gulp-sourcemaps';
 import * as Uglify from 'gulp-uglify';
 import * as HTMLMin from 'gulp-htmlmin';
-
-import * as Package from '../../../package.json';
+import * as Path from 'path';
 
 import { SRC, PROD, IF_PROD, IF_DEV } from '../constants';
 
 Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:manifest`, `build:sass`, `build:typescript`]));
 
+let Package: any;
 let dataFile: {
   package?: {[key: string]: any};
   header?: {[key: string]: any};
+  [key: string]: any;
 } = {
   package: Package
 };
 
-Gulp.task(`build:data`, () =>
+Gulp.task(`build:package`, () =>
+  Gulp.src(SRC.PACKAGE)
+    .pipe(Through.obj((file, encoding, cb) => {
+      Package = JSON.parse(file.contents.toString(encoding));
+
+      Package = {
+        ...Package,
+        author: {
+          ...Package.author,
+          first_name: Package.author.name.split(' ')[0],
+          last_name: Package.author.name.split(' ')[1],
+          url_pretty: Path.basename(Package.author.url)
+        },
+        homepage_pretty: Path.basename(Package.homepage),
+      };
+      return cb(null);
+    }))
+);
+
+Gulp.task(`build:data`, [`build:package`], () =>
   Gulp.src(SRC.DATA)
     .pipe(Yaml())
     .pipe(Through.obj((file, encoding, cb) => {
       if (file.path.endsWith(`.json`)) {
         dataFile = {
           ...JSON.parse(file.contents.toString(encoding)),
-          package: {
-            ...Package,
-            author: {
-              ...Package.author,
-              first_name: Package.author.name.split(' ')[0],
-              last_name: Package.author.name.split(' ')[1]
-            }
-          },
+          package: Package,
           date: (new Date()).toISOString().split('T')[0]
         };
-        dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/gi, '');
-        dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
+        dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/g, '');
+        dataFile.header.address = dataFile.header.address.replace(/\n/g, '<br />');
         return cb(null);
       }
     }))
@@ -56,33 +69,12 @@ Gulp.task(`build:manifest`, () =>
       extension: ''
     }))
     .pipe(Yaml())
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest(`build`))
-    // .pipe(Through.obj((file, encoding, cb) => {
-    //   if (file.path.endsWith(`.json`)) {
-    //     dataFile = Object.assign({},
-    //       JSON.parse(file.contents.toString(encoding)),
-    //       {
-    //         package: Package,
-    //         date: (new Date()).toISOString().split('T')[0]
-    //       }
-    //     );
-    //     dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/gi, '');
-    //     dataFile.header.address = dataFile.header.address.replace(/\n/gi, '<br />');
-    //     return cb(null);
-    //   }
-    // }))
 );
 
 Gulp.task(`build:html`, [`build:data`], () =>
-  Gulp.src([SRC.HTML, SRC.HTML_FRAGMENTS, SRC.DATA])
-    .pipe(Through.obj(function (file, encoding, cb) {
-      if (file.path.endsWith(`.json`) || file.path.match(/\/fragments\//i)) {
-        return cb(null);
-      } else {
-        return cb(null, file);
-      }
-    }))
+  Gulp.src(SRC.HTML)
     .pipe(Mustache(dataFile as any, {
       extension: '.html'
     }))
@@ -92,23 +84,25 @@ Gulp.task(`build:html`, [`build:data`], () =>
       decodeEntities: true,
       removeComments: true
     } as any)))
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest(`build`))
 );
 
 Gulp.task(`build:assets`, () =>
   Gulp.src(SRC.ASSETS)
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest(`build/assets`))
 );
 
 Gulp.task(`build:sass`, () =>
   Gulp.src(SRC.SASS)
+    .pipe(Sourcemaps.init())
     .pipe(Sass({
       outputStyle: PROD ? 'compressed' : 'nested'
     }).on('error', Sass.logError))
     .pipe(Autoprefixer())
-    .pipe(Connect.reload())
+    .pipe(IF_DEV(Sourcemaps.write({includeContent: true})))
+    .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest('build'))
 );
 

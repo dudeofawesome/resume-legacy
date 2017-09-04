@@ -4,6 +4,7 @@
   "long_name": "Louis Orleans' Résumé",
   "version": "0.1.8",
   "description": "Experienced Full-Stack Software Engineer",
+  "homepage": "https://resume.orleans.io",
   "main": "index.js",
   "repository": "https://github.com/dudeofawesome/resume.git",
   "author": {
