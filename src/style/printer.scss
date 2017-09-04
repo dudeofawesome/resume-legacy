@@ -32,6 +32,11 @@
     break-inside: avoid;
     break-inside: avoid-page;
   }
+
+  .print-only {
+    display: initial;
+    display: unset;
+  }
 }
 
 $chrome-print-width: 5.9in;

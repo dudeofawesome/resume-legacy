@@ -7,6 +7,10 @@
 
     margin: 0 auto;
   }
+
+  .print-only {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: $max-page-width) {
