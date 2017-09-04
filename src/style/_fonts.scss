@@ -1,1 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700');
+
+$mdi-font-path: '/assets';
+$mdi-font-size-base: 1rem;
+@import "../../node_modules/mdi/scss/variables";
+@import "../../node_modules/mdi/scss/functions";
+@import "../../node_modules/mdi/scss/path";
+@import "../../node_modules/mdi/scss/core";
+@import "../../node_modules/mdi/scss/icons";
