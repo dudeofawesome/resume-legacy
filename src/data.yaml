@@ -43,11 +43,11 @@ sections:
         location: Brea, CA
         duration: 2014 - present
         description: |
-          Home for Cardboard is an alternative home screen to be used with a virtual reality headset, such as Google Cardboard.
-          It enables users to use their phone without the need to constantly remove it from the headset.
-          Over 20,000 people, with 100+ daily downloads.
           <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.cardboardhome" name="Home for Cardboard">
             Available on the Google Play Store</a>.
+          An alternative home screen to be used with VR headsets, such as Google Cardboard.
+          Enables users to play games without the need to constantly remove it from the headset.
+          Over 35,000 users, with 100+ daily downloads.
       - title: Android app, Sole Champion Mobile Game
         location: Brea, CA
         duration: 2014
