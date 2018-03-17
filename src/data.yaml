@@ -5,7 +5,7 @@ header:
     Brea, CA 92821
   github_username: dudeofawesome
 sections:
-  - title: experience
+  - title: Experience
     items:
       - title: Senior Software Engineer, Castifi
         location: Irvine, CA
@@ -69,7 +69,7 @@ sections:
         description: |
           Developed curriculum to teach students in first through sixth grade about photographic techniques and digital editing.
           I was in 7th grade at the time, and the only lead teacher under the age of 20.
-  - title: accomplishments
+  - title: Accomplishments
     items:
       - title: 1st place winner at HackUCI
         location: UCI, CA
@@ -89,7 +89,7 @@ sections:
       - title: Fullerton College Honors Student
         location: Fullerton College, CA
         duration: 2014 - 2015
-  - title: education
+  - title: Education
     items:
       - title: Fullerton College
         location: Fullerton, CA
