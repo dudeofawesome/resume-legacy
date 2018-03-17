@@ -31,6 +31,14 @@ sections:
         description: |
           Developed a wide array of projects, including desktop applications, Android apps, web apps, and command line applications.
           Provided system testing for other projects.
+      - title: App, Butterfly Reader for Hacker News
+        location: Brea, CA
+        duration: 2018 - present
+        description: |
+          A fast, easy to use Hacker News client.
+          Ad free, open source, built with Flutter.
+          <a href="https://play.google.com/store/apps/details?id=io.orleans.hnflutter" name="Butterfly Reader">
+            Available on the Google Play Store</a>.
       - title: Android app, Home for Cardboard, for Google Cardboard
         location: Brea, CA
         duration: 2014 - present
