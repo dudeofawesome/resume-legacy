@@ -9,7 +9,7 @@ sections:
     items:
       - title: Senior Software Engineer, Castifi
         location: Irvine, CA
-        duration: 2016 - present
+        duration: 2016 - 2017
         description: |
           Architected and implemented casting and on-set management platform for film background actors.
           Built <a href="https://app.castifi.com" name="Castifi Web">web app</a>,
