@@ -16,12 +16,16 @@ import * as Path from 'path';
 
 import { SRC, PROD, IF_PROD, IF_DEV } from '../constants';
 
-Gulp.task(`build`, [`clean`], () => Sequence([`build:html`, `build:assets`, `build:manifest`, `build:sass`, `build:typescript`]));
+Gulp.task(`build`, [`clean`], () => Sequence(
+  `build:data`,
+  [`build:html`, `build:assets`, `build:manifest`, `build:sass`, `build:typescript`]
+));
 
 let Package: any;
 let dataFile: {
   package?: {[key: string]: any};
   header?: {[key: string]: any};
+  date?: string;
   [key: string]: any;
 } = {
   package: Package
@@ -54,7 +58,7 @@ Gulp.task(`build:data`, [`build:package`], () =>
         dataFile = {
           ...JSON.parse(file.contents.toString(encoding)),
           package: Package,
-          date: (new Date()).toISOString().split('T')[0]
+          date: (new Date()).toISOString().split('T')[0],
         };
         dataFile.header.phone_clean = dataFile.header.phone.replace(/[^0-9]/g, '');
         dataFile.header.address = dataFile.header.address.replace(/\n/g, '<br />');
@@ -63,7 +67,7 @@ Gulp.task(`build:data`, [`build:package`], () =>
     }))
 );
 
-Gulp.task(`build:manifest`, () =>
+Gulp.task(`build:manifest`, [`build:data`], () =>
   Gulp.src(SRC.MANIFEST)
     .pipe(Mustache(dataFile as any, {
       extension: ''
