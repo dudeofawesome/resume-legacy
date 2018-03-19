@@ -22,7 +22,22 @@
     $ gulp dev
     ```
 1. Update values in [`package.json`](package.json)
+    - `long_name`
+    - `description`
+    - `homepage`
+    - `repository`
+    - `author`
 1. Update values in [`readme.md`](readme.md)
+    - resume site links
+    - travis links
 1. Update copy in [`src/data.yaml`](src/data.yaml)
-1. Update colors in [`src/style/_variables.scss`](src/style/_variables.scss)
+1. Update colors
+    - [`src/style/_variables.scss`](src/style/_variables.scss)
+        - `$colors` map
+        - `$pixels` map & associated single pixel images
+    - [`src/templates/index.mustache`](src/templates/index.mustache)
+        - `theme-color` meta tag
+    - [`src/config/manifest.yaml.mustache`](src/config/manifest.yaml.mustache)
+        - `background_color`
+        - `theme_color`
 1. Update icons in [`src/assets/icon`](src/assets/icon)
