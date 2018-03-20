@@ -159,9 +159,7 @@ Resources:
         id: 78dc7988-5713-433d-8ee3-5e25f9a54d76
   IAMresumeTravis:
     Type: 'AWS::IAM::User'
-    Properties:
-      Policies:
-        - PolicyName: !Ref IAMPresumeTravis
+    Properties: {}
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 872d648b-fa6c-43c4-aac4-0aa7d83beaf5
@@ -169,6 +167,8 @@ Resources:
     Type: 'AWS::IAM::Policy'
     Properties:
       PolicyName: ci-deploy-resume
+      Users:
+        - !Ref IAMresumeTravis
       PolicyDocument:
         Version: 2012-10-17
         Statement:
