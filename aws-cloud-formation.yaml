@@ -119,13 +119,13 @@ Resources:
     Properties:
       DistributionConfig:
         Aliases:
-          - resume.orleans.io
+          - !Ref hostname
         Comment: Some comment
         Enabled: 'true'
         DefaultRootObject: index.html
-        PriceClass: PriceClass_100
+        PriceClass: !Ref CFPriceClass
         Origins:
-          - DomainName: resume.orleans.io
+          - DomainName: !Ref hostname
             Id: S3resumeOrigin
             // TODO: what is S3OriginConfig?
             S3OriginConfig:
@@ -153,9 +153,7 @@ Resources:
   CMCresume:
     Type: 'AWS::CertificateManager::Certificate'
     Properties:
-      DomainName: orleans.io
-      SubjectAlternativeNames:
-        - '*.orleans.io'
+      DomainName: !Ref hostname
     Metadata:
       'AWS::CloudFormation::Designer':
         id: 78dc7988-5713-433d-8ee3-5e25f9a54d76
@@ -211,6 +209,19 @@ Resources:
         id: f2d4501d-005e-47cf-a41c-c79f7c06971d
     DependsOn:
       - IAMresumeTravis
+Parameters:
+  hostname:
+    Type: String
+    Description: Website hostname
+    Default: resume.orleans.io
+  CFPriceClass:
+    Type: String
+    Description: CloudFront distribution price class. Default is PriceClass_100
+    Default: PriceClass_100
+    AllowedValues:
+      - PriceClass_100
+      - PriceClass_200
+      - PriceClass_All
 Outputs:
   WebsiteURL:
     Value: !GetAtt
