@@ -8,12 +8,13 @@ npm:
 # env:
 # - CXX=g++-4.8
 
-# addons:
-#   apt:
-#     sources:
-#     - ubuntu-toolchain-r-test
-#     packages:
-#     - g++-4.8
+addons:
+  chrome: stable
+  # apt:
+  #   sources:
+  #   - ubuntu-toolchain-r-test
+  #   packages:
+  #   - g++-4.8
 
 # https://blog.travis-ci.com/2013-12-05-speed-up-your-builds-cache-your-dependencies/
 cache:
