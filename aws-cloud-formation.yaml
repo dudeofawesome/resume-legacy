@@ -1,0 +1,238 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    e36f8ede-ce78-4704-a823-33116eafa193:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 480
+        'y': 610
+      z: 0
+      embeds: []
+      dependson:
+        - 078d35c3-385f-418d-a305-5c79bd155f65
+    078d35c3-385f-418d-a305-5c79bd155f65:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 480
+        'y': 700
+      z: 0
+      embeds: []
+      dependson:
+        - e36f8ede-ce78-4704-a823-33116eafa193
+    3480c0f7-8cb9-414b-ad98-b5d274d151ab:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 600
+        'y': 610
+      z: 0
+      embeds: []
+      dependson:
+        - e36f8ede-ce78-4704-a823-33116eafa193
+        - 78dc7988-5713-433d-8ee3-5e25f9a54d76
+        - f85d6e74-a8ea-42ff-bc0d-1488799ff0c4
+    78dc7988-5713-433d-8ee3-5e25f9a54d76:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 600
+        'y': 700
+      z: 0
+      embeds: []
+    872d648b-fa6c-43c4-aac4-0aa7d83beaf5:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 720
+        'y': 610
+      z: 0
+      embeds: []
+      isassociatedwith:
+        - f85d6e74-a8ea-42ff-bc0d-1488799ff0c4
+    f85d6e74-a8ea-42ff-bc0d-1488799ff0c4:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 720
+        'y': 700
+      z: 0
+      embeds: []
+      dependson:
+        - 872d648b-fa6c-43c4-aac4-0aa7d83beaf5
+    f2d4501d-005e-47cf-a41c-c79f7c06971d:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 720
+        'y': 790
+      z: 0
+      embeds: []
+    d2e6d83e-3661-4fbd-8c43-c6e7d67455f0:
+      source:
+        id: 3480c0f7-8cb9-414b-ad98-b5d274d151ab
+      target:
+        id: f85d6e74-a8ea-42ff-bc0d-1488799ff0c4
+      z: 11
+Resources:
+  S3BPstaticWebHosting:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref S3resume
+                - /*
+      Bucket: !Ref S3resume
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 078d35c3-385f-418d-a305-5c79bd155f65
+    DependsOn:
+      - S3resume
+  S3resume:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: e36f8ede-ce78-4704-a823-33116eafa193
+  CFDresume:
+    Type: 'AWS::CloudFront::Distribution'
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - !Ref hostname
+        Comment: Some comment
+        Enabled: 'true'
+        DefaultRootObject: index.html
+        PriceClass: !Ref CFPriceClass
+        Origins:
+          - DomainName: !Ref hostname
+            Id: S3resumeOrigin
+            // TODO: what is S3OriginConfig?
+            S3OriginConfig:
+              OriginAccessIdentity: origin-access-identity/cloudfront/E127EXAMPLE51Z
+        DefaultCacheBehavior:
+          TargetOriginId: S3resumeOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponsePagePath: /index.html
+            ResponseCode: 200
+          - ErrorCode: 404
+            ResponsePagePath: /index.html
+            ResponseCode: 200
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 3480c0f7-8cb9-414b-ad98-b5d274d151ab
+    DependsOn:
+      - S3resume
+      - CMCresume
+      - IAMPresumeTravis
+  CMCresume:
+    Type: 'AWS::CertificateManager::Certificate'
+    Properties:
+      DomainName: !Ref hostname
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 78dc7988-5713-433d-8ee3-5e25f9a54d76
+  IAMresumeTravis:
+    Type: 'AWS::IAM::User'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 872d648b-fa6c-43c4-aac4-0aa7d83beaf5
+  IAMPresumeTravis:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: ci-deploy-resume
+      Users:
+        - !Ref IAMresumeTravis
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: AllowPublicRead
+            Effect: Allow
+            Action:
+              - 's3:AbortMultipartUpload'
+              - 's3:DeleteObject'
+              - 's3:GetObject'
+              - 's3:GetObjectAcl'
+              - 's3:PutObject'
+              - 's3:PutObjectAcl'
+            Resource:
+              - !Join
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref S3resume
+                  - /*
+          - Effect: Allow
+            Action:
+              - 'cloudfront:GetDistribution'
+              - 'cloudfront:GetDistributionConfig'
+              - 'cloudfront:ListDistributions'
+              - 'cloudfront:ListCloudFrontOriginAccessIdentities'
+              - 'cloudfront:CreateInvalidation'
+              - 'cloudfront:GetInvalidation'
+              - 'cloudfront:ListInvalidations'
+            Resource: '*'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: f85d6e74-a8ea-42ff-bc0d-1488799ff0c4
+  IAMAKresumeTravis:
+    Type: 'AWS::IAM::AccessKey'
+    Properties:
+      UserName: !Ref IAMresumeTravis
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: f2d4501d-005e-47cf-a41c-c79f7c06971d
+    DependsOn:
+      - IAMresumeTravis
+Parameters:
+  hostname:
+    Type: String
+    Description: Website hostname
+    Default: resume.orleans.io
+  CFPriceClass:
+    Type: String
+    Description: CloudFront distribution price class. Default is PriceClass_100
+    Default: PriceClass_100
+    AllowedValues:
+      - PriceClass_100
+      - PriceClass_200
+      - PriceClass_All
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt
+      - S3resume
+      - WebsiteURL
+    Description: URL for website hosted on S3
+  S3BucketSecureURL:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - S3resume
+          - DomainName
+    Description: Name of S3 bucket to hold website content

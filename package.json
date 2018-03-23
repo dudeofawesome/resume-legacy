@@ -2,11 +2,12 @@
   "name": "resume",
   "short_name": "Résumé",
   "long_name": "Louis Orleans' Résumé",
-  "version": "0.1.9",
+  "version": "0.1.13",
   "description": "Experienced Full-Stack Software Engineer",
   "homepage": "https://resume.orleans.io",
   "main": "index.js",
   "repository": "https://github.com/dudeofawesome/resume.git",
+  "private": true,
   "author": {
     "name": "Louis Orleans",
     "email": "louis@orleans.io",

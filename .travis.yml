@@ -86,9 +86,12 @@ after_deploy: |
     if [[ $DEPLOY_PROD == true ]]; then
       aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
       echo "Created CloudFront prod invalidation"
-    elif [[ $DEPLOY_DEV == true ]]; then
+      echo "View @ https://resume.orleans.io"
+    fi
+    if [[ $DEPLOY_DEV == true ]]; then
       aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DEV_DISTRIBUTION_ID --paths "/*"
       echo "Created CloudFront dev invalidation"
+      echo "View @ https://dev.resume.orleans.io"
     fi
   fi
 
