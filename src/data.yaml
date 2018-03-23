@@ -17,7 +17,7 @@ sections:
             <a href="https://itunes.apple.com/us/app/castifi/id1176896442?mt=8" name="Castifi iOS">iOS app</a> with Ionic / Angular 4,
             API server with Express / LoopBack.
           Testing and building with Travis CI.
-          Deployed with AWS S3, CloudFront, Heroku.
+          Deployed with AWS, Heroku.
           Contributed to Ionic, Cordova, Ionic Native, LoopBack, DefinitelyTyped, and other open source projects.
       - title: Head of Software Engineering, Edyza, Inc
         location: Irvine, CA
@@ -36,11 +36,11 @@ sections:
         location: Brea, CA
         duration: 2018 - present
         description: |
-          A fast, easy to use Hacker News client.
+          Fast, simple Hacker News client.
           Ad free, <a href="https://github.com/dudeofawesome/hn_flutter" name="Butterfly Reader source code">open source</a>,
             built with Flutter.
           <a href="https://play.google.com/store/apps/details?id=io.orleans.hnflutter" name="Butterfly Reader">
-            Available on the Google Play Store</a>.
+            On Google Play Store</a>.
       - title: Android app, Home for Cardboard, for Google Cardboard
         location: Brea, CA
         duration: 2014 - present
@@ -50,7 +50,7 @@ sections:
           Over 35,000 users, with 100+ daily downloads.
           <a href="https://github.com/dudeofawesome/CardboardHome" name="Cardboard Home source code">Open source</a>,
             <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.cardboardhome" name="Home for Cardboard">
-            available on the Google Play Store</a>.
+            on Google Play Store</a>.
       - title: Android app, Sole Champion Mobile Game
         location: Brea, CA
         duration: 2014
@@ -60,7 +60,7 @@ sections:
           Players can then move their phone for any other view of the game.
           <a href="https://github.com/dudeofawesome/Sole_Champion" name="Cardboard Home source code">Open source</a>,
             <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.solechamp" name="Sole Champion">
-            available on the Google Play Store</a>.
+            on Google Play Store</a>.
       - title: High School Information Technology Volunteer
         location: Brea Olinda High School
         duration: 2011 - 2014
