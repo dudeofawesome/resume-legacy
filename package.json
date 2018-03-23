@@ -40,6 +40,7 @@
     "@types/gulp-uglify": "^3.0.1",
     "@types/run-sequence": "^0.0.29",
     "@types/through2": "^2.0.33",
+    "chrome-headless-render-pdf": "^1.5.1",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
