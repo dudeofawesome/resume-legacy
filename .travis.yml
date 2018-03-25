@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-- 6.11.2
+- 8.10.0
 npm:
-- 4.5.0
+- 4.6.1
 
 # https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Node.js-v4-(or-io.js-v3)-compiler-requirements
 # env:
