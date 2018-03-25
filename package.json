@@ -57,7 +57,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-yaml": "^1.0.1",
     "gulp-yaml-validate": "^1.0.2",
-    "http-server": "^0.10.0",
+    "http-server": "^0.11.1",
     "mustache": "^2.3.0",
     "node-sass": "^4.5.3",
     "run-sequence": "^2.1.0",
