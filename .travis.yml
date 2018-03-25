@@ -33,6 +33,7 @@ branches:
     - master
     - develop
     - /^release\/.*$/
+    - /^travis\/.*$/
 
 before_script:
   - NODE_ENV=production gulp build
