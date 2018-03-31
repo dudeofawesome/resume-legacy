@@ -12,5 +12,7 @@ echo "[CAPTURE WEBSITE PDF]";
 chrome-headless-render-pdf --chrome-binary /usr/bin/google-chrome-stabl --url "http://localhost:8080" --pdf "build/Louis Orleans' Résumé.pdf" --no-margins;
 echo "[STOP HEADLESS CHROME]";
 kill $!
+echo "[STOP HTTP SERVER]";
+kill http-server;
 ls build;
 echo "[DONE]";
