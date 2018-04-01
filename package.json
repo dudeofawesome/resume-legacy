@@ -23,9 +23,12 @@
     "test": "exit 0"
   },
   "dependencies": {
-    "mdi": "^2.0.46"
+    "mdi": "^2.0.46",
+    "print-js": "^1.0.37",
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
+    "@dudeofawesome/chrome-headless-render-pdf": "^1.5.1",
     "@types/clean-css": "^3.4.30",
     "@types/del": "^3.0.0",
     "@types/google.analytics": "^0.0.35",
@@ -40,6 +43,7 @@
     "@types/gulp-uglify": "^3.0.1",
     "@types/run-sequence": "^0.0.29",
     "@types/through2": "^2.0.33",
+    "@types/webpack-stream": "^3.2.10",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
@@ -56,15 +60,19 @@
     "gulp-uglify": "^3.0.0",
     "gulp-yaml": "^1.0.1",
     "gulp-yaml-validate": "^1.0.2",
-    "http-server": "^0.10.0",
+    "http-server": "^0.11.1",
     "mustache": "^2.3.0",
     "node-sass": "^4.5.3",
     "run-sequence": "^2.1.0",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
     "through2": "^2.0.3",
+    "ts-loader": "^4.1.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-stream": "^4.0.3"
   }
 }
