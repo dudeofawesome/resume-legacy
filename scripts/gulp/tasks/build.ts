@@ -111,27 +111,15 @@ Gulp.task(`build:sass`, () =>
     .pipe(Gulp.dest('build'))
 );
 
-// const tsProject: Project = Typescript.createProject(PROD ? 'tsconfig.prod.json' : 'tsconfig.main.json', {typescript: ProjectTS});
 Gulp.task(`build:webpack`, () => {
   return Gulp.src(SRC.TYPESCRIPT_ENTRY)
     .pipe(WebpackStream(
       {
         config: require('../../../webpack.config.js'),
-        // mode: PROD ? 'production' : 'development',
         devtool: 'source-map',
       } as any,
       Webpack,
     ))
     .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest('build/scripts'));
-
-  // const tsResult = tsProject.src()
-  //   .pipe(Sourcemaps.init())
-  //   .pipe(tsProject());
-
-  // return tsResult.js
-  //   .pipe(IF_DEV(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts'})))
-  //   .pipe(IF_PROD(Uglify()))
-    // .pipe(IF_DEV(Connect.reload()))
-  //   .pipe(Gulp.dest('build/scripts'));
 });
