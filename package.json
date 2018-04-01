@@ -2,7 +2,7 @@
   "name": "resume",
   "short_name": "Résumé",
   "long_name": "Louis Orleans' Résumé",
-  "version": "0.1.13",
+  "version": "0.2.0",
   "description": "Experienced Full-Stack Software Engineer",
   "homepage": "https://resume.orleans.io",
   "main": "index.js",
