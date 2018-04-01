@@ -6,7 +6,8 @@ import * as Yaml from 'gulp-yaml';
 import * as Through from 'through2';
 import * as Sequence from 'run-sequence';
 import * as Connect from 'gulp-connect';
-import * as Typescript from 'gulp-typescript';
+import * as Webpack from 'webpack';
+import * as WebpackStream from 'webpack-stream';
 import { Project } from 'gulp-typescript';
 import * as ProjectTS from 'typescript';
 import * as Sourcemaps from 'gulp-sourcemaps';
@@ -18,7 +19,7 @@ import { SRC, PROD, IF_PROD, IF_DEV } from '../constants';
 
 Gulp.task(`build`, [`clean`], () => Sequence(
   `build:data`,
-  [`build:html`, `build:assets`, `build:manifest`, `build:sass`, `build:typescript`]
+  [`build:html`, `build:assets`, `build:manifest`, `build:sass`, `build:webpack`]
 ));
 
 let Package: any;
@@ -110,15 +111,15 @@ Gulp.task(`build:sass`, () =>
     .pipe(Gulp.dest('build'))
 );
 
-const tsProject: Project = Typescript.createProject(PROD ? 'tsconfig.prod.json' : 'tsconfig.main.json', {typescript: ProjectTS});
-Gulp.task(`build:typescript`, () => {
-  const tsResult = tsProject.src()
-    .pipe(Sourcemaps.init())
-    .pipe(tsProject());
-
-  return tsResult.js
-    .pipe(IF_DEV(Sourcemaps.write({includeContent: true, sourceRoot: 'src/scripts'})))
-    .pipe(IF_PROD(Uglify()))
+Gulp.task(`build:webpack`, () => {
+  return Gulp.src(SRC.TYPESCRIPT_ENTRY)
+    .pipe(WebpackStream(
+      {
+        config: require('../../../webpack.config.js'),
+        devtool: 'source-map',
+      } as any,
+      Webpack,
+    ))
     .pipe(IF_DEV(Connect.reload()))
     .pipe(Gulp.dest('build/scripts'));
 });

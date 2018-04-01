@@ -17,5 +17,9 @@
     "*.travis": "yaml",
     "*.mustache": "handlebars",
     "*.yaml.mustache": "yaml"
-  }
+  },
+  "cSpell.words": [
+    "devtool",
+    "prerendered"
+  ]
 }
