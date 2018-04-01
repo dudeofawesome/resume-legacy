@@ -43,6 +43,7 @@
     "@types/gulp-uglify": "^3.0.1",
     "@types/run-sequence": "^0.0.29",
     "@types/through2": "^2.0.33",
+    "@types/webpack-stream": "^3.2.10",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
@@ -66,8 +67,12 @@
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
     "through2": "^2.0.3",
+    "ts-loader": "^4.1.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-stream": "^4.0.3"
   }
 }
