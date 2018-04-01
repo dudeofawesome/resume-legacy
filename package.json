@@ -26,6 +26,7 @@
     "mdi": "^2.0.46"
   },
   "devDependencies": {
+    "@dudeofawesome/chrome-headless-render-pdf": "^1.5.1",
     "@types/clean-css": "^3.4.30",
     "@types/del": "^3.0.0",
     "@types/google.analytics": "^0.0.35",
@@ -40,7 +41,6 @@
     "@types/gulp-uglify": "^3.0.1",
     "@types/run-sequence": "^0.0.29",
     "@types/through2": "^2.0.33",
-    "chrome-headless-render-pdf": "^1.5.1",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
