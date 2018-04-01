@@ -25,6 +25,7 @@
   "dependencies": {
     "mdi": "^2.0.46",
     "print-js": "^1.0.37",
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
     "@dudeofawesome/chrome-headless-render-pdf": "^1.5.1",
