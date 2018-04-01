@@ -9,7 +9,7 @@ sleep 10;
 # google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 --no-sandbox "http://localhost:8080" &
 # sleep 60;
 echo "[CAPTURE WEBSITE PDF]";
-chrome-headless-render-pdf --chrome-binary /usr/bin/google-chrome-stable --url "http://localhost:8080" --pdf "build/Louis Orleans' Résumé.pdf" --no-margins;
+chrome-headless-render-pdf --chrome-binary /usr/bin/google-chrome-stable --chrome-option '--no-sandbox' --url "http://localhost:8080" --pdf "build/Louis Orleans' Résumé.pdf" --no-margins;
 if [ $? -gt 0 ]; then
   exit $?
 fi
