@@ -18,13 +18,18 @@ sections:
             API server with Express / LoopBack.
           Testing and building with Travis CI.
           Deployed with AWS, Heroku.
-          Contributed to Ionic, Cordova, Ionic Native, LoopBack, DefinitelyTyped, and other open source projects.
+          Contributed to <a href="https://github.com/pulls?q=is%3Apr+author%3Adudeofawesome+ionic">Ionic</a>,
+            <a href="https://github.com/pulls?q=is%3Apr+author%3Adudeofawesome+cordova">Cordova</a>,
+            <a href="https://github.com/pulls?q=is%3Apr+author%3Adudeofawesome+ionic+native">Ionic Native</a>,
+            <a href="https://github.com/castifi?q=loopback">LoopBack plugins</a>,
+            <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/pulls?q=is%3Apr+author%3Adudeofawesome">DefinitelyTyped</a>,
+            and other open source projects.
       - title: Head of Software Engineering, Edyza, Inc
         location: Irvine, CA
         duration: 2016 - 2017
         description: |
-          Lead Software Engineering Team through development of both backend and frontend software for sensor platform,
-            including data visualization, analytics, and hardware actuation based on sensor data.
+          Developed backend and frontend software for sensor platform, including data visualization, analytics, and hardware actuation
+            based on sensor data.
           Designed physical packaging for shipping sensor nodes with AutoCAD.
       - title: Software Engineer, Productive Programming Inc.
         location: Placentia, CA
@@ -41,6 +46,8 @@ sections:
             built with Flutter.
           <a href="https://play.google.com/store/apps/details?id=io.orleans.hnflutter" name="Butterfly Reader">
             On Google Play Store</a>.
+          Contributed to <a href="https://github.com/flutter/flutter/pulls?q=is:pr+author:dudeofawesome">Flutter library</a> &
+            <a href="https://github.com/pulls?q=is:pr+author:dudeofawesome+language:dart">plugins</a>.
       - title: Android app, Home for Cardboard, for Google Cardboard
         location: Brea, CA
         duration: 2014 - present
