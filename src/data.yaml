@@ -23,7 +23,7 @@ sections:
         location: Irvine, CA
         duration: 2016 - 2017
         description: |
-          Developed both backend and frontend software for sensor platform, including data visualization, analytics, and hardware actuation
+          Developed backend and frontend software for sensor platform, including data visualization, analytics, and hardware actuation
             based on sensor data.
           Designed physical packaging for shipping sensor nodes with AutoCAD.
       - title: Software Engineer, Productive Programming Inc.
