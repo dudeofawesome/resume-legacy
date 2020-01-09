@@ -53,6 +53,11 @@ a {
 
   text-align: right;
 
+  ::selection {
+    background-color: color($colors, background);
+    color: color-contrast($colors, background);
+  }
+
   a {
     color: color-contrast($colors, primary-muted);
   }
