@@ -50,7 +50,7 @@ sections:
             <a href="https://github.com/pulls?q=is:pr+author:dudeofawesome+language:dart">plugins</a>.
       - title: Android app, Home for Cardboard, for Google Cardboard
         location: Brea, CA
-        duration: 2014 - present
+        duration: 2014 - 2018
         description: |
           An alternative home screen to be used with VR headsets, such as Google Cardboard.
           Enables users to play games without the need to constantly remove it from the headset.
@@ -131,7 +131,7 @@ skills:
   - LoopBack
   - AWS
   - Travis CI
-  - Android Apps
+  - Android
   - Java
   - Unity3D
   - Python
@@ -143,4 +143,6 @@ skills:
   - Git
   - Photoshop
   - AutoCAD
+  - Fusion 360
   - Laser Cutting
+  - 3D Printing
