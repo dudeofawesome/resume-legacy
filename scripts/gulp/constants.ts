@@ -9,7 +9,7 @@ export const SRC = {
   SASS: `src/**/*.scss`,
   TYPESCRIPT: `src/scripts/**/*.ts`,
   TYPESCRIPT_ENTRY: `src/scripts/index.ts`,
-  ASSETS: [`src/assets/**/*`, `node_modules/mdi/fonts/*`]
+  ASSETS: [`src/assets/**/*`, `node_modules/@mdi/font/fonts/*`],
 };
 
 export const PROD = process.env.NODE_ENV === 'production';
