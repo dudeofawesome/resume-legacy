@@ -79,8 +79,16 @@
     }
   }
 
-  .content .title-line {
-    flex-direction: column;
+  .content {
+    .title-line {
+      flex-direction: column;
+    }
+
+    .description {
+      margin-left: 1rem;
+      padding-left: 0.3rem;
+      // border-left: solid 0.2rem transparentize(color($colors, black), 0.9);
+    }
   }
 }
 
