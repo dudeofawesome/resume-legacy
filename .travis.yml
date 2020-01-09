@@ -21,7 +21,7 @@ cache:
   yarn: true
   directories:
     - node_modules
-    - "$HOME/.yarn-cache"
+    - '$HOME/.yarn-cache'
 
 # https://docs.travis-ci.com/user/customizing-the-build#Git-Clone-Depth
 git:
@@ -57,8 +57,8 @@ before_deploy:
 # https://docs.travis-ci.com/user/deployment/s3
 deploy:
   - provider: s3
-    access_key_id: "$AWS_ACCESS_KEY_ID"
-    secret_access_key: "$AWS_ACCESS_KEY_SECRET"
+    access_key_id: '$AWS_ACCESS_KEY_ID'
+    secret_access_key: '$AWS_ACCESS_KEY_SECRET'
     bucket: $AWS_S3_PROD_BUCKET
     skip_cleanup: true
     detect_encoding: true
@@ -68,8 +68,8 @@ deploy:
       all_branches: true
       condition: $DEPLOY_PROD == true
   - provider: s3
-    access_key_id: "$AWS_ACCESS_KEY_ID"
-    secret_access_key: "$AWS_ACCESS_KEY_SECRET"
+    access_key_id: '$AWS_ACCESS_KEY_ID'
+    secret_access_key: '$AWS_ACCESS_KEY_SECRET'
     bucket: $AWS_S3_DEV_BUCKET
     skip_cleanup: true
     detect_encoding: true

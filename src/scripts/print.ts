@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import Print from 'print-js';
 
-(async function () {
+(async function() {
   const RESUME_PDF_URL = `/Louis Orleans' Résumé.pdf`;
   let prerendered_pdf_avail = false;
 

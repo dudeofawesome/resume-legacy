@@ -5,22 +5,14 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
-    "lib": [
-      "es2015"
-    ],
+    "lib": ["es2015"],
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "ES6"
   },
-  "include": [
-    "*.ts",
-    "tasks/**/*.ts",
-    "../../custom-typings/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["*.ts", "tasks/**/*.ts", "../../custom-typings/**/*.ts"],
+  "exclude": ["node_modules"],
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": false

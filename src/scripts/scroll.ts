@@ -1,8 +1,16 @@
-(function () {
-  const sidebarEle: HTMLDivElement = document.querySelector('#sidebar') as HTMLDivElement;
-  const nameEle: HTMLDivElement = document.querySelector('#sidebar .name') as HTMLDivElement;
-  const nameContainerEle: HTMLDivElement = document.querySelector('#sidebar .name-container') as HTMLDivElement;
-  const contactEle: HTMLDivElement = document.querySelector('#sidebar .contact') as HTMLDivElement;
+(function() {
+  const sidebarEle: HTMLDivElement = document.querySelector(
+    '#sidebar',
+  ) as HTMLDivElement;
+  const nameEle: HTMLDivElement = document.querySelector(
+    '#sidebar .name',
+  ) as HTMLDivElement;
+  const nameContainerEle: HTMLDivElement = document.querySelector(
+    '#sidebar .name-container',
+  ) as HTMLDivElement;
+  const contactEle: HTMLDivElement = document.querySelector(
+    '#sidebar .contact',
+  ) as HTMLDivElement;
 
   let isSmallScreen: boolean = false;
   const mq = window.matchMedia(`screen and (max-width: 46rem)`);

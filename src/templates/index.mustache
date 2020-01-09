@@ -1,140 +1,144 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title>{{& package.long_name}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#920000">
 
-    {{> ../fragments/open-graph }}
+<head>
+  <meta charset="UTF-8">
+  <title>{{& package.long_name}}</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#920000">
 
-    {{> ../fragments/icons }}
+  {{> ../fragments/open-graph }}
 
-    <link rel="manifest" href="manifest.json">
+  {{> ../fragments/icons }}
 
-    <link href="style/index.css" rel="stylesheet">
-    <link href="style/browser.css" rel="stylesheet" media="screen">
-    <link href="style/printer.css" rel="stylesheet" media="print">
+  <link rel="manifest" href="manifest.json">
 
-    {{> ../fragments/analytics }}
+  <link href="style/index.css" rel="stylesheet">
+  <link href="style/browser.css" rel="stylesheet" media="screen">
+  <link href="style/printer.css" rel="stylesheet" media="print">
 
-    <script type="text/javascript" src="scripts/bundle.js" async></script>
-  </head>
+  {{> ../fragments/analytics }}
 
-  <body>
+  <script type="text/javascript" src="scripts/bundle.js" async></script>
+</head>
 
-    <div class="resume">
+<body>
 
-      <div class="sidebar" id="sidebar">
-        <div class="name" id="header">
-          <div class="name-container">
-            {{package.author.name}}
-          </div>
+  <div class="resume">
+
+    <div class="sidebar" id="sidebar">
+      <div class="name" id="header">
+        <div class="name-container">
+          {{package.author.name}}
         </div>
+      </div>
 
-        <div class="contact">
-          {{#header.address}}
-            <div class="address">
-              <address>{{& header.address}}</address>
-              <i class="mdi mdi-home">home</i>
-            </div>
-          {{/header.address}}
-          {{#header.phone}}
-            <div class="phone">
-              <a href="tel:+{{header.phone_clean}}" name="Phone">{{header.phone}}</a>
-              <i class="mdi mdi-phone">phone</i>
-            </div>
-          {{/header.phone}}
-          {{#package.author.email}}
-            <div class="email">
-              <a href="mailto:{{package.author.email}}" name="Email">{{package.author.email}}</a>
-              <i class="mdi mdi-email">email</i>
-            </div>
-          {{/package.author.email}}
-          {{#package.author.url}}
-            <div class="url">
-              <a href="{{& package.author.url}}" name="Website">{{package.author.url_pretty}}</a>
-              <i class="mdi mdi-earth">earth</i>
-            </div>
-          {{/package.author.url}}
-          {{#package.homepage}}
-            <div class="url print-only">
-              <a href="{{& package.homepage}}" name="Résumé">{{package.homepage_pretty}}</a>
-              <i class="mdi mdi-file">file</i>
-            </div>
-          {{/package.homepage}}
+      <div class="contact">
+        {{#header.address}}
+        <div class="address">
+          <address>{{& header.address}}</address>
+          <i class="mdi mdi-home">home</i>
+        </div>
+        {{/header.address}}
+        {{#header.phone}}
+        <div class="phone">
+          <a href="tel:+{{header.phone_clean}}" name="Phone">{{header.phone}}</a>
+          <i class="mdi mdi-phone">phone</i>
+        </div>
+        {{/header.phone}}
+        {{#package.author.email}}
+        <div class="email">
+          <a href="mailto:{{package.author.email}}" name="Email">{{package.author.email}}</a>
+          <i class="mdi mdi-email">email</i>
+        </div>
+        {{/package.author.email}}
+        {{#package.author.url}}
+        <div class="url">
+          <a href="{{& package.author.url}}" name="Website">{{package.author.url_pretty}}</a>
+          <i class="mdi mdi-earth">earth</i>
+        </div>
+        {{/package.author.url}}
+        {{#package.homepage}}
+        <div class="url print-only">
+          <a href="{{& package.homepage}}" name="Résumé">{{package.homepage_pretty}}</a>
+          <i class="mdi mdi-file">file</i>
+        </div>
+        {{/package.homepage}}
+        {{#header.github_username}}
+        <div class="github">
+          <a href="https://github.com/{{header.github_username}}" name="GitHub">{{header.github_username}}</a>
+          <i class="mdi mdi-github-circle">github</i>
+        </div>
+        {{/header.github_username}}
+      </div>
+
+      <div class="footer">
+        <div class="buttons">
+          <button onclick="window.pdfPrint()" class="icon-only">
+            <i class="mdi mdi-printer">printer</i>
+          </button>
+        </div>
+        <div class="version">
           {{#header.github_username}}
-            <div class="github">
-              <a href="https://github.com/{{header.github_username}}" name="GitHub">{{header.github_username}}</a>
-              <i class="mdi mdi-github-circle">github</i>
-            </div>
+          <a href="https://github.com/{{header.github_username}}/{{package.name}}/releases/tag/v{{& package.version}}"
+            name="GitHub Résumé">v{{package.version}}</a>
+          - {{date}}
+          {{/header.github_username}}
+          {{^header.github_username}}
+          v{{package.version}} - {{date}}
           {{/header.github_username}}
         </div>
-
-        <div class="footer">
-          <div class="buttons">
-            <button onclick="window.pdfPrint()" class="icon-only">
-              <i class="mdi mdi-printer">printer</i>
-            </button>
-          </div>
-          <div class="version">
-            {{#header.github_username}}
-              <a href="https://github.com/{{header.github_username}}/{{package.name}}/releases/tag/v{{& package.version}}" name="GitHub Résumé">v{{package.version}}</a>
-              - {{date}}
-            {{/header.github_username}}
-            {{^header.github_username}}
-              v{{package.version}} - {{date}}
-            {{/header.github_username}}
-          </div>
-        </div>
-
-        <img src="/assets/img/920000.png" class="background">
       </div>
 
-      <div class="content">
+      <img src="/assets/img/920000.png" class="background">
+    </div>
 
-        {{#sections}}
-          <section>
-            <header>{{title}}</header>
+    <div class="content">
 
-            {{#items}}
-              <ul>
-                  <li>
-                    <div class="title-line">
-                      <div class="title">
-                        {{& title}}
-                      </div>
-                      <div class="location-duration">
-                        {{& location}} — {{& duration}}
-                      </div>
-                    </div>
-                    {{#description}}
-                      <p class="description">
-                        {{& description}}
-                      </p>
-                    {{/description}}
-                  </li>
-              </ul>
-            {{/items}}
-          </section>
-        {{/sections}}
+      {{#sections}}
+      <section>
+        <header>{{title}}</header>
 
-        <section>
-          <header>Skills</header>
+        {{#items}}
+        <ul>
+          <li>
+            <div class="title-line">
+              <div class="title">
+                {{& title}}
+              </div>
+              <div class="location-duration">
+                {{& location}} — {{& duration}}
+              </div>
+            </div>
+            {{#description}}
+            <p class="description">
+              {{& description}}
+            </p>
+            {{/description}}
+          </li>
+        </ul>
+        {{/items}}
+      </section>
+      {{/sections}}
 
-          <ul class="skills">
-            {{#skills}}
-              <li>{{.}}</li>
-            {{/skills}}
-          </ul>
-        </section>
+      <section>
+        <header>Skills</header>
 
-      </div>
+        <ul class="skills">
+          {{#skills}}
+          <li>{{.}}</li>
+          {{/skills}}
+        </ul>
+      </section>
 
     </div>
 
-  </body>
+  </div>
+
+</body>
+
 </html>
