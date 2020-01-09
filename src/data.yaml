@@ -68,12 +68,6 @@ sections:
           <a href="https://github.com/dudeofawesome/Sole_Champion" name="Cardboard Home source code">Open source</a>,
             <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.solechamp" name="Sole Champion">
             on Google Play Store</a>.
-      - title: High School Information Technology Volunteer
-        location: Brea Olinda High School
-        duration: 2011 - 2014
-        description: |
-          Installed hardware, repaired computers and other electronic hardware, monitored school-wide systems, improved network layouts,
-            provided technical support.
       - title: Lead Teacher of Digital Photography Class
         location: EV Free Church of Fullerton
         duration: 2008 - 2011
@@ -93,9 +87,6 @@ sections:
         duration: 2015
       - title: 1st place in Cal Poly Cyber Security Competition
         location: Cal Poly Pomona, CA
-        duration: 2013
-      - title: 3rd place in Discovery Science Center Pumpkin Launch
-        location: Cal State Fullerton, CA
         duration: 2013
       - title: Fullerton College Honors Student
         location: Fullerton College, CA
