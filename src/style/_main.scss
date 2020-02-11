@@ -2,7 +2,7 @@
 @import 'functions';
 
 html {
-  background-color: color($colors, medium);
+  background-color: color($colors, background-color-back);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -145,6 +145,9 @@ a {
 
 .content {
   padding: 0.625rem 0.9375rem;
+
+  color: color($colors, text-color);
+  background-color: color($colors, background-color);
 
   ul {
     list-style-type: none;

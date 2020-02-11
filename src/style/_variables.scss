@@ -1,6 +1,3 @@
-$text-color: rgb(0, 0, 0);
-$background-color: rgb(255, 255, 255);
-
 $transition-speed: 0.25s;
 
 $max-page-width: 70rem;
@@ -23,6 +20,12 @@ $colors: (
   dark: rgb(34, 34, 34),
   black: rgb(0, 0, 0),
   facebook: rgb(59, 89, 152),
+  text-color: rgb(0, 0, 0),
+  text-color-dark: rgb(226, 226, 226),
+  background-color: rgb(255, 255, 255),
+  background-color-dark: rgb(50, 50, 50),
+  background-color-back: rgb(68, 68, 68),
+  background-color-back-dark: rgb(18, 18, 18),
 );
 
 $pixels: (
