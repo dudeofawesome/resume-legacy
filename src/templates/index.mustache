@@ -31,12 +31,6 @@
   <div class="resume">
 
     <div class="sidebar" id="sidebar">
-      <div class="name" id="header">
-        <div class="name-container">
-          {{package.author.name}}
-        </div>
-      </div>
-
       <div class="contact">
         {{#header.address}}
         <div class="address">
@@ -76,6 +70,8 @@
         {{/header.github_username}}
       </div>
 
+      {{> skills}}
+
       <div class="footer">
         <div class="buttons">
           <button onclick="window.pdfPrint()" class="icon-only">
@@ -98,6 +94,15 @@
     </div>
 
     <div class="content">
+      <div class="name" id="header">
+        <div class="name-container">
+          {{package.author.name}}
+        </div>
+      </div>
+
+      <div class="description">
+        {{package.description}}
+      </div>
 
       {{#sections}}
       <section>
@@ -125,16 +130,7 @@
       </section>
       {{/sections}}
 
-      <section>
-        <header>Skills</header>
-
-        <ul class="skills">
-          {{#skills}}
-          <li>{{.}}</li>
-          {{/skills}}
-        </ul>
-      </section>
-
+      {{> skills}}
     </div>
 
   </div>

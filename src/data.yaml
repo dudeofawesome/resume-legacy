@@ -1,12 +1,16 @@
 header:
   phone: 714.386.9047
   address: |
-    230 S. Redwood Ave. #B
-    Brea, CA 92821
+    Brea, California
   github_username: dudeofawesome
 sections:
   - title: Experience
     items:
+      - title: Co-Founder, Flawless Execution
+        location: Brea, CA
+        duration: 2020 - Present
+        description: |
+          something or another
       - title: Senior Software Engineer, Castifi
         location: Irvine, CA
         duration: 2016 - 2017
@@ -37,6 +41,8 @@ sections:
         description: |
           Developed a wide array of projects, including desktop applications, Android apps, web apps, and command line applications.
           Provided system testing for other projects.
+  - title: Projects
+    items:
       - title: App, Butterfly Reader for Hacker News
         location: Brea, CA
         duration: 2018 - present
@@ -50,7 +56,7 @@ sections:
             <a href="https://github.com/pulls?q=is:pr+author:dudeofawesome+language:dart">plugins</a>.
       - title: Android app, Home for Cardboard, for Google Cardboard
         location: Brea, CA
-        duration: 2014 - 2018
+        duration: 2014 - 2016
         description: |
           An alternative home screen to be used with VR headsets, such as Google Cardboard.
           Enables users to play games without the need to constantly remove it from the headset.
@@ -68,13 +74,7 @@ sections:
           <a href="https://github.com/dudeofawesome/Sole_Champion" name="Cardboard Home source code">Open source</a>,
             <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.solechamp" name="Sole Champion">
             on Google Play Store</a>.
-      - title: Lead Teacher of Digital Photography Class
-        location: EV Free Church of Fullerton
-        duration: 2008 - 2011
-        description: |
-          Developed curriculum to teach students in first through sixth grade about photographic techniques and digital editing.
-          I was in 7th grade at the time, and the only lead teacher under the age of 20.
-  - title: Accomplishments
+  - title: Awards
     items:
       - title: 1st place winner at HackUCI
         location: UCI, CA
@@ -100,13 +100,6 @@ sections:
           Enrolled in Honors program, pursuing a B.S. in Software Engineering from UCI.
           Relevant Courses — Intro to Programming Concepts in C++, Data Structures in C++, Intro to Programming: Computer Games,
             Honors College Writing
-      - title: Brea Olinda High School
-        location: Brea, CA
-        duration: 2010 - 2014
-        description: |
-          Select member of Brea Olinda High School Global IT Academy, a four year program which prepares students such as myself to
-            become capable software engineers.
-          Relevant Courses — Visual Basic.NET, Web Design, Java, AP Calculus AB, AP Physics B, Honors Chemistry
 skills:
   - Team Leadership
   - Teaching
@@ -114,21 +107,18 @@ skills:
   - Angular
   - Ionic
   - Flutter
-  - Node.JS
-  - TypeScript / JavaScript / ES6+
-  - Dart
+  - Docker
+  - Ansible
+  - Firebase
   - Flux / Redux
-  - SASS
   - LoopBack
   - AWS
+  - Typeform API
+  - Braintree
   - Travis CI
+  - Github Actions
   - Android
-  - Java
   - Unity3D
-  - Python
-  - Swift
-  - C++
-  - C#
   - PostgreSQL
   - MongoDB
   - Git
@@ -137,3 +127,15 @@ skills:
   - Fusion 360
   - Laser Cutting
   - 3D Printing
+languages:
+  - Node.JS
+  - TypeScript / JavaScript / ES6+
+  - Dart
+  - SASS
+  - Ruby
+  - Bash
+  - Java
+  - Python
+  - Swift
+  - C++
+  - C#
