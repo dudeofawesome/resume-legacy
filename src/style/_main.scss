@@ -14,8 +14,10 @@ html {
 .resume {
   font-family: 'Roboto Condensed', sans-serif;
 
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 12rem auto;
+  grid-template-rows: 2rem auto auto;
+  gap: 0.5rem;
 
   position: absolute;
   top: 0;
@@ -27,6 +29,29 @@ html {
   background-color: color($colors, white);
 
   font-size: 0.85rem;
+
+  > header {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  > .sidebar {
+    grid-column: 1;
+    grid-row: 2 / 4;
+  }
+
+  > .sidebar-background {
+    grid-column: 1;
+    grid-row: 1 / 4;
+  }
+
+  > .content {
+    grid-column: 2;
+    grid-row: 3;
+
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 a {
@@ -130,6 +155,24 @@ a {
   > * {
     z-index: 1;
   }
+
+  .background {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+}
+
+.sidebar-background {
+  background-color: color($colors, primary-muted);
+
+  border-right: solid color($colors, primary) 0.5rem;
 
   .background {
     display: none;
