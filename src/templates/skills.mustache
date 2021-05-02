@@ -1,18 +1,46 @@
 <div class="skills">
+  {{#skills.length}}
   <section>
     <header>Skills / Tools</header>
     <ul>
       {{#skills}}
-      <li>{{.}}</li>
+      <li>{{& .}}</li>
       {{/skills}}
     </ul>
   </section>
+  {{/skills.length}}
+
+  {{#languages.length}}
   <section>
     <header>Languages</header>
     <ul>
       {{#languages}}
-      <li>{{.}}</li>
+      <li>{{& .}}</li>
       {{/languages}}
     </ul>
   </section>
+  {{/languages.length}}
+
+  {{#education.length}}
+  <section class="education">
+    <header>Education</header>
+    <ul>
+      {{#education}}
+      <li>
+        <div class="title">
+          {{& name}}
+        </div>
+        {{#description}}
+        <div class="description">
+          {{& description}} ({{& duration}})
+        </div>
+        {{/description}}
+        <div class="location">
+          {{& location}}
+        </div>
+      </li>
+      {{/education}}
+    </ul>
+  </section>
+  {{/education.length}}
 </div>

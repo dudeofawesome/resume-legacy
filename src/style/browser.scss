@@ -18,6 +18,7 @@
     background-color: color($colors, background-color-back-dark);
   }
 
+  .resume,
   .content {
     color: color($colors, text-color-dark);
     background-color: color($colors, background-color-dark);
@@ -44,9 +45,13 @@
   }
 }
 
-@media screen and (min-width: 62rem) {
-  .description {
-    padding-right: 15rem;
+@media screen and (min-width: 46rem) {
+  .large-screen-only {
+    display: unset;
+  }
+
+  .small-screen-only {
+    display: none;
   }
 }
 
@@ -96,8 +101,12 @@
       }
     }
 
-    .skills {
+    .large-screen-only {
       display: none;
+    }
+
+    .small-screen-only {
+      display: unset;
     }
 
     .footer {

@@ -97,15 +97,11 @@ sections:
       - title: Fullerton College Honors Student
         location: Fullerton College, CA
         duration: 2014 - 2015
-  - title: Education
-    items:
-      - title: Fullerton College
-        location: Fullerton, CA
-        duration: 2013 - 2015
-        description: |
-          Enrolled in Honors program, pursuing a B.S. in Software Engineering from UCI.
-          Relevant Courses — Intro to Programming Concepts in C++, Data Structures in C++, Intro to Programming: Computer Games,
-            Honors College Writing
+education:
+  - name: Fullerton College
+    location: Fullerton, CA
+    duration: 2015
+    description: Computer Science
 skills:
   - Team Leadership
   - Teaching

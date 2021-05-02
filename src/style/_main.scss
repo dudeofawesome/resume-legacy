@@ -65,14 +65,16 @@ a {
 }
 
 .name {
-  margin: 2rem 0;
-
+  font-family: 'Playfair Display', Cambria, Cochin, Times, 'Times New Roman',
+    serif;
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 534;
+  line-height: 83%;
 
   &,
   &.name-container {
     transform-origin: center top;
+    margin-bottom: 0.75rem;
 
     will-change: transform;
   }
@@ -89,18 +91,20 @@ a {
   }
 }
 
+.description {
+  .summary {
+    font-weight: bold;
+  }
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
 
   position: relative;
-  padding: 0 0.5rem 0.3125rem;
-  max-width: 200px;
+  padding: 0 1rem 0.3rem 0.5rem;
 
   color: color-contrast($colors, primary-muted);
-  background-color: color($colors, primary-muted);
-
-  border-right: solid color($colors, primary) 0.5rem;
 
   text-align: right;
 
@@ -118,18 +122,38 @@ a {
     flex-direction: column;
 
     font-size: 0.9rem;
+    margin-bottom: 3rem;
 
     > * {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
-      padding: 0.3125rem 0;
+      padding: 0.15rem 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
 
       .mdi {
-        margin-top: -0.1rem;
-        margin-left: 0.5rem;
+        margin: -0.2rem 0 -0.2rem 0.5rem;
       }
+    }
+  }
+
+  .education {
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .title {
+      font-weight: 600;
     }
   }
 
@@ -210,7 +234,7 @@ a {
 }
 
 .content {
-  padding: 0.625rem 0.9375rem;
+  // padding: 0.6rem 1rem 0 0.6rem;
 
   color: color($colors, text-color);
   background-color: color($colors, background-color);
@@ -267,20 +291,20 @@ a {
 }
 
 section {
+  font-size: 0.9rem;
+
+  margin-bottom: 0.9rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
   header {
     margin-bottom: 0.3rem;
 
     font-size: 1.1rem;
     color: color($colors, primary);
     text-transform: uppercase;
-  }
-
-  font-size: 0.9rem;
-
-  margin-bottom: 0.9rem;
-
-  &:last-child {
-    margin-bottom: 0;
   }
 }
 
