@@ -108,9 +108,9 @@
       <section>
         <header>{{title}}</header>
 
-        {{#items}}
         <ul>
-          <li>
+        {{#items}}
+          <li class="item">
             <div class="title-line">
               <div class="title">
                 {{& title}}
@@ -119,14 +119,23 @@
                 {{& location}} — {{& duration}}
               </div>
             </div>
-            {{#description}}
-            <p class="description">
-              {{& description}}
-            </p>
-            {{/description}}
+            {{#description.length}}
+              <ul class="description">
+                {{#description}}
+                <li>{{& .}}</li>
+                {{/description}}
+              </ul>
+            {{/description.length}}
+            {{^description.length}}
+              {{#description}}
+              <p class="description">
+                {{& description}}
+              </p>
+              {{/description}}
+            {{/description.length}}
           </li>
-        </ul>
         {{/items}}
+        </ul>
       </section>
       {{/sections}}
 

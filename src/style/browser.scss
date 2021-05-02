@@ -29,6 +29,10 @@
     .title-line .location-duration {
       color: color($colors, medium-light);
     }
+
+    ul .item ul.description li::before {
+      background-color: color($colors, text-color-dark);
+    }
   }
 }
 

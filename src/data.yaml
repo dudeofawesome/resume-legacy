@@ -9,8 +9,14 @@ sections:
       - title: Co-Founder, Flawless Execution
         location: Brea, CA
         duration: 2020 - Present
-        description: |
-          something or another
+        description:
+          - Design & develop ecommerce platform to purchase in-game items with
+            real world money for the Destiny 2 video game
+          - Interview and hire international partners to procure in-game items
+            to sell
+          - Actively build and maintain front end mobile and desktop website
+            using Angular
+          - Strive to reduce operating costs in our Firebase backend
       - title: Senior Software Engineer, Castifi
         location: Irvine, CA
         duration: 2016 - 2017

@@ -177,10 +177,30 @@ a {
     margin: 0;
     padding: 0;
 
-    p {
-      margin-top: 0.1rem;
-      margin-left: 2rem;
-      margin-bottom: 0.5rem;
+    .item {
+      ul.description li {
+        position: relative;
+
+        &::before {
+          $bullet-size: 0.25rem;
+
+          content: ' ';
+          display: block;
+          position: absolute;
+          top: 0.5rem;
+          left: -1rem;
+          width: $bullet-size;
+          height: $bullet-size;
+          border-radius: $bullet-size / 2;
+          background-color: color($colors, text-color);
+        }
+      }
+
+      .description {
+        margin-top: 0.1rem;
+        margin-left: 2rem;
+        margin-bottom: 0.5rem;
+      }
     }
   }
 
