@@ -8,6 +8,10 @@
     marks: none;
   }
 
+  html {
+    color-adjust: exact;
+  }
+
   .sidebar {
     color: color($colors, white) !important;
     background-color: color($colors, primary-muted) !important;
