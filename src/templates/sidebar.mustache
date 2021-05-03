@@ -1,43 +1,43 @@
-<div class="sidebar" id="sidebar">
-  <div class="contact">
-    {{#header.address}}
-    <div class="address">
-      <address>{{& header.address}}</address>
-      <i class="mdi mdi-home">home</i>
-    </div>
-    {{/header.address}}
-    {{#header.phone}}
-    <div class="phone">
-      <a href="tel:+{{header.phone_clean}}" name="Phone">{{header.phone}}</a>
-      <i class="mdi mdi-phone">phone</i>
-    </div>
-    {{/header.phone}}
-    {{#package.author.email}}
-    <div class="email">
-      <a href="mailto:{{package.author.email}}" name="Email">{{package.author.email}}</a>
-      <i class="mdi mdi-email">email</i>
-    </div>
-    {{/package.author.email}}
-    {{#package.author.url}}
-    <div class="url">
-      <a href="{{& package.author.url}}" name="Website">{{package.author.url_pretty}}</a>
-      <i class="mdi mdi-earth">earth</i>
-    </div>
-    {{/package.author.url}}
-    {{#package.homepage}}
-    <div class="url print-only">
-      <a href="{{& package.homepage}}" name="Résumé">{{package.homepage_pretty}}</a>
-      <i class="mdi mdi-file">file</i>
-    </div>
-    {{/package.homepage}}
-    {{#header.github_username}}
-    <div class="github">
-      <a href="https://github.com/{{header.github_username}}" name="GitHub">{{header.github_username}}</a>
-      <i class="mdi mdi-github-circle">github</i>
-    </div>
-    {{/header.github_username}}
+<div id="sidebar-contact" class="sidebar-part">
+  {{#header.address}}
+  <div class="address">
+    <address>{{& header.address}}</address>
+    <i class="mdi mdi-home">home</i>
   </div>
+  {{/header.address}}
+  {{#header.phone}}
+  <div class="phone">
+    <a href="tel:+{{header.phone_clean}}" name="Phone">{{header.phone}}</a>
+    <i class="mdi mdi-phone">phone</i>
+  </div>
+  {{/header.phone}}
+  {{#package.author.email}}
+  <div class="email">
+    <a href="mailto:{{package.author.email}}" name="Email">{{package.author.email}}</a>
+    <i class="mdi mdi-email">email</i>
+  </div>
+  {{/package.author.email}}
+  {{#package.author.url}}
+  <div class="url">
+    <a href="{{& package.author.url}}" name="Website">{{package.author.url_pretty}}</a>
+    <i class="mdi mdi-earth">earth</i>
+  </div>
+  {{/package.author.url}}
+  {{#package.homepage}}
+  <div class="url print-only">
+    <a href="{{& package.homepage}}" name="Résumé">{{package.homepage_pretty}}</a>
+    <i class="mdi mdi-file">file</i>
+  </div>
+  {{/package.homepage}}
+  {{#header.github_username}}
+  <div class="github">
+    <a href="https://github.com/{{header.github_username}}" name="GitHub">{{header.github_username}}</a>
+    <i class="mdi mdi-github-circle">github</i>
+  </div>
+  {{/header.github_username}}
+</div>
 
+<div id="sidebar-info" class="sidebar-part">
   <div class="large-screens-only">
     {{> skills }}
   </div>
@@ -61,6 +61,6 @@
   </div>
 </div>
 
-<div class="sidebar-background">
+<div id="sidebar-background" class="sidebar-part">
   <img src="/assets/img/920000.png" class="background">
 </div>

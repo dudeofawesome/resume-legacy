@@ -17,7 +17,7 @@ html {
   display: grid;
   grid-template-columns: 12rem auto;
   grid-template-rows: 2rem auto auto;
-  gap: 0.5rem;
+  gap: 1rem 0.5rem;
 
   position: absolute;
   top: 0;
@@ -33,16 +33,6 @@ html {
   > header {
     grid-column: 2;
     grid-row: 2;
-  }
-
-  > .sidebar {
-    grid-column: 1;
-    grid-row: 2 / 4;
-  }
-
-  > .sidebar-background {
-    grid-column: 1;
-    grid-row: 1 / 4;
   }
 
   > .content {
@@ -64,6 +54,10 @@ a {
   }
 }
 
+address {
+  font-style: normal;
+}
+
 .name {
   font-family: 'Playfair Display', Cambria, Cochin, Times, 'Times New Roman',
     serif;
@@ -74,7 +68,7 @@ a {
   &,
   &.name-container {
     transform-origin: center top;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 
     will-change: transform;
   }
@@ -97,12 +91,11 @@ a {
   }
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
+.sidebar-part {
+  grid-column: 1;
+  z-index: 1;
 
-  position: relative;
-  padding: 0 1rem 0.3rem 0.5rem;
+  padding: 0 1rem 0 0.5rem;
 
   color: color-contrast($colors, primary-muted);
 
@@ -117,33 +110,48 @@ a {
     color: color-contrast($colors, primary-muted);
   }
 
-  .contact {
+  section header {
+    color: transparentize(color-contrast($colors, primary-muted), 0.3);
+  }
+}
+
+#sidebar-contact {
+  grid-row: 2 / 3;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 0.9rem;
+
+  > * {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.15rem 0;
 
-    font-size: 0.9rem;
-    margin-bottom: 3rem;
+    &:first-child {
+      padding-top: 0;
+    }
 
-    > * {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 0.15rem 0;
+    &:last-child {
+      padding-bottom: 0;
+    }
 
-      &:first-child {
-        padding-top: 0;
-      }
-
-      &:last-child {
-        padding-bottom: 0;
-      }
-
-      .mdi {
-        margin: -0.2rem 0 -0.2rem 0.5rem;
-      }
+    .mdi {
+      margin: -0.2rem 0 -0.2rem 0.5rem;
     }
   }
+}
+
+#sidebar-info {
+  grid-row: 3 / 4;
+
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+
+  line-height: 140%;
 
   .education {
     ul {
@@ -154,6 +162,13 @@ a {
 
     .title {
       font-weight: 600;
+    }
+  }
+
+  section {
+    &.skills,
+    &.languages {
+      padding-left: 2rem;
     }
   }
 
@@ -193,7 +208,10 @@ a {
   }
 }
 
-.sidebar-background {
+#sidebar-background {
+  grid-row: 1 / 4;
+  z-index: 0;
+
   background-color: color($colors, primary-muted);
 
   border-right: solid color($colors, primary) 0.5rem;
@@ -296,7 +314,7 @@ section {
   margin-bottom: 0.9rem;
 
   &:last-of-type {
-    margin-bottom: 0;
+    margin-bottom: -0.5rem;
   }
 
   header {
