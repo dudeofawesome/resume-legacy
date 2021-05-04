@@ -10,16 +10,25 @@
 
   html {
     color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
-  .sidebar {
-    color: color($colors, white) !important;
-    background-color: color($colors, primary-muted) !important;
-    -webkit-print-color-adjust: exact;
+  .resume {
+    min-height: 100%;
+  }
 
-    .background {
-      display: block !important;
-    }
+  .sidebar-part,
+  .sidebar-part a {
+    color: color($colors, black) !important;
+  }
+
+  .sidebar-part section header {
+    color: color($colors, black);
+  }
+
+  #sidebar-background {
+    background-color: transparentize(color($colors, primary-muted), 0.95);
+    border-right-color: color($colors, primary);
   }
 
   .buttons {
@@ -44,19 +53,20 @@
 }
 
 $chrome-print-width: 5.9in;
-@media print and (max-width: $chrome-print-width) and (min-width: $chrome-print-width - 0.2in) {
+$margin: 0.2in;
+@media print and (min-width: max($chrome-print-width - $margin, 0)) {
   html {
     font-size: 15px;
   }
 }
-@media print and (min-width: $chrome-print-width) and (max-width: $chrome-print-width + 0.2in) {
+@media print and (max-width: $chrome-print-width + $margin) {
   html {
     font-size: 16px;
   }
 }
 
 $safari-print-width: 15in;
-@media print and (max-width: $safari-print-width) and (min-width: $safari-print-width - 0.2in) {
+@media print and (max-width: $safari-print-width) and (min-width: max($safari-print-width - $margin, 0)) {
   html {
     font-size: 13px;
   }
