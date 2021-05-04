@@ -10,25 +10,32 @@ sections:
         location: Brea, CA
         duration: 2020 - Present
         description:
-          - Design & develop ecommerce platform to purchase in-game items with
+          - Design & develop custom ecommerce platform to purchase in-game items with
             real world money for the Destiny 2 video game
           - Interview and hire international partners to procure in-game items
             to sell
           - Actively build and maintain front end mobile and desktop website
             using Angular
           - Strive to reduce operating costs in our Firebase backend
+      - title: Freelance Software Developer
+        location: Brea, CA
+        duration: 2018 - 2020
+        description:
+          - Updated and modified existing internal tools for local small
+            businesses using Angular, Flutter, and NodeJS
+          - Built and maintained reliable and secure multi-tenant servers using
+            OpenSUSE, Docker, Ansible, ZFS, BTRFS
       - title: Senior Software Engineer, Castifi
         location: Irvine, CA
         duration: 2016 - 2017
-        description: |
-          Architected and implemented casting and on-set management platform for film background actors.
-          Built <a href="https://app.castifi.com" name="Castifi Web">web app</a>,
-            <a href="https://play.google.com/store/apps/details?id=com.castifi" name="Castifi Android">Android app</a>,
-            <a href="https://itunes.apple.com/us/app/castifi/id1176896442?mt=8" name="Castifi iOS">iOS app</a> with Ionic / Angular 4,
-            API server with Express / LoopBack.
-          Testing and building with Travis CI.
-          Deployed with AWS, Heroku.
-          Contributed to <a href="https://github.com/pulls?q=is%3Apr+author%3Adudeofawesome+ionic">Ionic</a>,
+        description:
+          - Architected and implemented casting and on-set management platform
+            for film background actors
+          - Built web app, Android app, iOS app with Ionic / Angular 4
+          - Built backend with Express / LoopBack
+          - Implemented unit testing and continuous integration via Travis CI
+          - Deployed with AWS, Heroku
+          - Contributed to <a href="https://github.com/pulls?q=is%3Apr+author%3Adudeofawesome+ionic">Ionic</a>,
             <a href="https://github.com/pulls?q=is%3Apr+author%3Adudeofawesome+cordova">Cordova</a>,
             <a href="https://github.com/pulls?q=is%3Apr+author%3Adudeofawesome+ionic+native">Ionic Native</a>,
             <a href="https://github.com/castifi?q=loopback">LoopBack plugins</a>,
@@ -37,10 +44,11 @@ sections:
       - title: Head of Software Engineering, Edyza, Inc
         location: Irvine, CA
         duration: 2016 - 2017
-        description: |
-          Developed backend and frontend software for sensor platform, including data visualization, analytics, and hardware actuation
+        description:
+          - Developed backend and frontend software for sensor platform
+          - Data visualization, analytics, and hardware actuation
             based on sensor data.
-          Designed physical packaging for shipping sensor nodes with AutoCAD.
+          - Designed physical packaging for shipping sensor nodes with AutoCAD.
       - title: Software Engineer, Productive Programming Inc.
         location: Placentia, CA
         duration: 2015
@@ -54,7 +62,7 @@ sections:
         duration: 2018 - present
         description: |
           Fast, simple Hacker News client.
-          Ad free, <a href="https://github.com/dudeofawesome/hn_flutter" name="Butterfly Reader source code">open source</a>,
+          <a href="https://github.com/dudeofawesome/hn_flutter" name="Butterfly Reader source code">Open source</a>,
             built with Flutter.
           <a href="https://play.google.com/store/apps/details?id=io.orleans.hnflutter" name="Butterfly Reader">
             On Google Play Store</a>.
@@ -67,9 +75,7 @@ sections:
           An alternative home screen to be used with VR headsets, such as Google Cardboard.
           Enables users to play games without the need to constantly remove it from the headset.
           Over 35,000 users, with 100+ daily downloads.
-          <a href="https://github.com/dudeofawesome/CardboardHome" name="Cardboard Home source code">Open source</a>,
-            <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.cardboardhome" name="Home for Cardboard">
-            on Google Play Store</a>.
+          <a href="https://github.com/dudeofawesome/CardboardHome" name="Cardboard Home source code">Open source</a>.
       - title: Android app, Sole Champion Mobile Game
         location: Brea, CA
         duration: 2014
@@ -77,12 +83,10 @@ sections:
           Developed an augmented reality game.
           Player places a card on table, which their phone recognizes, and renders the game on top of their table.
           Players can then move their phone for any other view of the game.
-          <a href="https://github.com/dudeofawesome/Sole_Champion" name="Cardboard Home source code">Open source</a>,
-            <a href="https://play.google.com/store/apps/details?id=com.dudeofawesome.solechamp" name="Sole Champion">
-            on Google Play Store</a>.
+          <a href="https://github.com/dudeofawesome/Sole_Champion" name="Cardboard Home source code">Open source</a>.
   - title: Awards
     items:
-      - title: 1st place winner at HackUCI
+      - title: 1st place project at HackUCI
         location: UCI, CA
         duration: 2015
       - title: 1st place overall at Citrus Hacks
@@ -103,19 +107,19 @@ education:
     duration: 2015
     description: Computer Science
 skills:
-  - Team Leadership
-  - Teaching
-  - Problem Solving
-  - Angular
+  - <b>Angular</b>
+  - <b>Flutter</b>
+  - React
+  - HTML5 / CSS3
+  - <b>Node.JS</b>
   - Ionic
-  - Flutter
-  - Docker
+  - <b>Docker</b>
   - Ansible
-  - Firebase
+  - <b>Firebase</b>
   - Flux / Redux
   - LoopBack
   - AWS
-  - Typeform API
+  - Embedded Systems
   - Braintree
   - Travis CI
   - Github Actions
@@ -123,21 +127,21 @@ skills:
   - Unity3D
   - PostgreSQL
   - MongoDB
-  - Git
+  - <b>Git</b>
   - Photoshop
   - AutoCAD
   - Fusion 360
   - Laser Cutting
-  - 3D Printing
+  - <b>3D Printing</b>
 languages:
-  - Node.JS
-  - TypeScript / JavaScript / ES6+
-  - Dart
+  - <b>TypeScript</b> / JavaScript / ES6+
+  - <b>Dart</b>
   - SASS
-  - Ruby
+  - <b>Ruby</b>
   - Bash
   - Java
   - Python
   - Swift
   - C++
   - C#
+  - SQL
