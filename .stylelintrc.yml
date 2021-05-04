@@ -9,9 +9,10 @@ rules:
   at-rule-empty-line-before:
   string-no-newline:
   value-list-max-empty-lines:
+  value-list-comma-newline-after:
   function-max-empty-lines:
   number-leading-zero: always
   function-comma-space-after: always
   declaration-colon-space-after: always-single-line
-  declaration-colon-newline-after: always-multi-line
+  declaration-colon-newline-after:
   declaration-colon-space-before: never
