@@ -69,17 +69,6 @@ address {
 
     will-change: transform;
   }
-
-  &.small-header {
-    left: -1rem;
-    right: -1rem;
-
-    border-bottom: solid color($colors, primary) 1rem;
-
-    @include shadow-depth(3);
-
-    transition: box-shadow $transition-speed;
-  }
 }
 
 .description {

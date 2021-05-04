@@ -1,48 +1,53 @@
-(function() {
-  const sidebarEle: HTMLDivElement = document.querySelector(
-    '#sidebar',
-  ) as HTMLDivElement;
+(function () {
   const nameEle: HTMLDivElement = document.querySelector(
-    '#sidebar .name',
+    'header .name',
   ) as HTMLDivElement;
   const nameContainerEle: HTMLDivElement = document.querySelector(
-    '#sidebar .name-container',
+    'header .name-container',
   ) as HTMLDivElement;
-  const contactEle: HTMLDivElement = document.querySelector(
-    '#sidebar .contact',
+  const infoEle: HTMLDivElement = document.querySelector(
+    '#sidebar-info',
   ) as HTMLDivElement;
 
   let isSmallScreen: boolean = false;
-  const mq = window.matchMedia(`screen and (max-width: 46rem)`);
+  const mq = window.matchMedia(`screen and (max-width: 35rem)`);
   isSmallScreen = mq.matches;
+  let wasSmallScreen = isSmallScreen;
   mq.addListener(mq => {
     isSmallScreen = mq.matches;
 
-    if (!isSmallScreen && nameEle.classList.contains('small-header')) {
+    if (!isSmallScreen && wasSmallScreen) {
       nameEle.classList.remove('small-header');
       nameContainerEle.style.transform = `scale3d(1, 1, 1)`;
       nameEle.style.transform = `scale3d(1, 1, 1)`;
     }
+
+    wasSmallScreen = isSmallScreen;
   });
 
+  let lastScroll = window.pageYOffset;
   document.addEventListener('scroll', ev => {
     if (isSmallScreen) {
-      let scroll_percent = window.scrollY / contactEle.clientHeight;
-      scroll_percent = scroll_percent > 1 ? 1 : scroll_percent;
-      scroll_percent = scroll_percent < 0 ? 0 : scroll_percent;
+      let scroll_percent = window.pageYOffset / infoEle.clientHeight;
+      scroll_percent = Math.max(Math.min(scroll_percent, 1), 0);
 
       const scale = Math.cos(scroll_percent * Math.PI) / 4 + 0.75;
 
       nameContainerEle.style.transform = `scale3d(${scale}, 1, 1)`;
       nameEle.style.transform = `scale3d(1, ${scale}, 1)`;
 
-      if (window.scrollY - (sidebarEle.clientHeight - 44.5) > 0) {
-        if (!nameEle.classList.contains('small-header')) {
-          nameEle.classList.add('small-header');
-        }
-      } else {
+      const scrollDown = window.pageYOffset > lastScroll;
+      const name = nameEle.getBoundingClientRect();
+      const info = infoEle.getBoundingClientRect();
+      const borderWidth = 8;
+
+      if (scrollDown && info.bottom <= name.bottom + borderWidth) {
+        nameEle.classList.add('small-header');
+      } else if (!scrollDown && info.bottom > name.bottom) {
         nameEle.classList.remove('small-header');
       }
     }
+
+    lastScroll = window.pageYOffset;
   });
 })();

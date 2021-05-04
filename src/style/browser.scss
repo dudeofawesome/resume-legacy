@@ -45,7 +45,7 @@
   }
 }
 
-@media screen and (min-width: 46rem) {
+@media screen and (min-width: 35rem) {
   .large-screen-only {
     display: unset;
   }
@@ -55,80 +55,84 @@
   }
 }
 
-@media screen and (max-width: 46rem) {
-  html {
-    background-color: color($colors, primary-muted);
+@media screen and (max-width: 35rem) {
+  .large-screen-only {
+    display: none;
+  }
+
+  .small-screen-only {
+    display: unset;
   }
 
   .resume {
+    display: flex;
     flex-direction: column;
+    gap: unset;
+
+    > :nth-child(2) {
+      padding-top: 4.5rem;
+    }
   }
 
-  .sidebar {
-    padding-top: 6rem;
-    border-bottom: solid color($colors, primary) 0.5rem;
-    border-right: none;
+  .sidebar-part {
+    color: color-contrast($colors, primary-muted);
+    background-color: color($colors, primary-muted);
+  }
+
+  .name {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    margin: 0;
+    padding: 1rem 0;
+    z-index: 2;
+
     text-align: center;
-    max-width: unset;
 
-    .name {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+    color: color-contrast($colors, primary-muted);
+    background-color: color($colors, primary-muted);
 
-      margin: 0;
-      padding: 1rem 0;
-      z-index: 2;
+    &.small-header {
+      left: -1rem;
+      right: -1rem;
 
-      background-color: color($colors, primary-muted);
+      border-bottom: solid color($colors, primary) 1rem;
+
+      @include shadow-depth(3);
+
+      transition: box-shadow $transition-speed;
     }
+  }
 
-    .contact {
-      flex-flow: row wrap;
-      justify-content: center;
+  #sidebar-contact {
+    flex-flow: row wrap;
+    justify-content: center;
 
-      > * {
-        padding: 0.3125rem 0.9375rem;
-        flex-direction: row-reverse;
-        text-align: left;
-        text-align: start;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
-        .mdi {
-          margin-left: 0;
-          margin-right: 0.5rem;
-        }
+    > * {
+      padding: 0.3125rem 0.9375rem;
+      flex-direction: row-reverse;
+      text-align: left;
+      text-align: start;
+
+      .mdi {
+        margin-left: 0;
+        margin-right: 0.5rem;
       }
     }
-
-    .large-screen-only {
-      display: none;
-    }
-
-    .small-screen-only {
-      display: unset;
-    }
-
-    .footer {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
   }
 
-  .content {
-    .title-line {
-      flex-direction: column;
-    }
+  #sidebar-info {
+    border-bottom: solid color($colors, primary) 0.5rem;
 
-    .description {
-      margin-left: 1rem;
-      padding-left: 0.3rem;
-      // border-left: solid 0.2rem transparentize(color($colors, black), 0.9);
-    }
-
-    .skills {
-      display: block;
+    .footer {
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
