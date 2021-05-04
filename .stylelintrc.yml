@@ -16,3 +16,4 @@ rules:
   declaration-colon-space-after: always-single-line
   declaration-colon-newline-after:
   declaration-colon-space-before: never
+  no-descending-specificity:
