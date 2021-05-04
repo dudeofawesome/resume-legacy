@@ -24,6 +24,7 @@
     ```
 1. Update values in [`package.json`](package.json)
     - `long_name`
+    - `short_description`
     - `description`
     - `homepage`
     - `repository`
@@ -35,7 +36,6 @@
 1. Update colors
     - [`src/style/_variables.scss`](src/style/_variables.scss)
         - `$colors` map
-        - `$pixels` map & associated single pixel images
     - [`src/templates/index.mustache`](src/templates/index.mustache)
         - `theme-color` meta tag
     - [`src/config/manifest.yaml.mustache`](src/config/manifest.yaml.mustache)
