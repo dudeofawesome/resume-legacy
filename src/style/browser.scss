@@ -37,7 +37,7 @@
   }
 }
 
-@media screen and (min-width: $max-page-width) {
+@media screen and (min-width: calc(#{$max-page-width} + 1px)) {
   .resume {
     margin: 1rem auto;
 
