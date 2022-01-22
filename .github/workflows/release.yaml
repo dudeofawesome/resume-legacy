@@ -1,0 +1,50 @@
+name: 'Build and Deploy Webpage'
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  build-and-deploy:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout 🛎️'
+        uses: 'actions/checkout@v2' # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+      - uses: 'actions/setup-node@v1'
+        with:
+          node-version: '10.x'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: 'Install Packages'
+        run: 'yarn install'
+      - name: 'Build'
+        run: 'NODE_ENV=production yarn run build'
+      - name: 'Test'
+        run: 'yarn run test'
+      - name: 'Render PDF'
+        run: './scripts/cd/render-pdf.rb'
+      - name: 'Deploy to AWS'
+        if: ${{ startsWith(github.head_ref, 'master') }}
+        run: |
+          echo "Installing AWS CLI"
+          pip install --user --quiet awscli
+
+          aws configure set preview.cloudfront true
+
+          if [[ $DEPLOY_PROD == true ]]; then
+            aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
+            echo "Created CloudFront prod invalidation"
+            echo "View @ https://resume.orleans.io"
+          fi
+          if [[ $DEPLOY_DEV == true ]]; then
+            aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DEV_DISTRIBUTION_ID --paths "/*"
+            echo "Created CloudFront dev invalidation"
+            echo "View @ https://dev.resume.orleans.io"
+          fi
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_ACCESS_KEY_SECRET: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
+          AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID }}
+          AWS_S3_PROD_BUCKET: ${{ secrets.AWS_S3_PROD_BUCKET }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
