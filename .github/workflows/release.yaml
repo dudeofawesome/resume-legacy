@@ -27,7 +27,7 @@ jobs:
       - name: 'Render PDF'
         run: './scripts/cd/render-pdf.rb'
       - name: 'Deploy to AWS'
-        if: ${{ startsWith(github.head_ref, 'master') }}
+        if: 'startsWith(github.ref_name, "main") || startsWith(github.ref_name, "master")'
         run: |
           echo "Installing AWS CLI"
           pip install --user --quiet awscli
