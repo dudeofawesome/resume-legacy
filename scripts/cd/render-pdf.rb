@@ -13,9 +13,15 @@ if RUBY_PLATFORM.include?('linux')
   chrome_path = '/usr/bin/google-chrome-stable'
 elsif RUBY_PLATFORM.include?('darwin')
   chrome_path = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+else
+  throw "Unknown platform #{RUBY_PLATFORM}"
 end
 
-`chrome-headless-render-pdf --chrome-binary "#{chrome_path}" --chrome-option '--no-sandbox' --url "http://localhost:8080" --pdf "build/Louis Orleans' Résumé.pdf" --no-margins`
+begin
+  `node_modules/.bin/chrome-headless-render-pdf --chrome-binary "#{chrome_path}" --chrome-option '--no-sandbox' --url "http://localhost:8080" --pdf "build/Louis Orleans' Résumé.pdf" --no-margins`
+rescue
+  exit 1
+end
 
 puts '[STOP HTTP SERVER]'
 Process.kill("TERM", http_server.pid)
