@@ -27,26 +27,14 @@ jobs:
       - name: 'Render PDF'
         run: './scripts/cd/render-pdf.rb'
       - name: 'Deploy to AWS'
+        uses: 'reggionick/s3-deploy@v3'
         if: "(startsWith(github.ref_name, 'main') || startsWith(github.ref_name, 'master'))"
-        run: |
-          echo "Installing AWS CLI"
-          pip install --user --quiet awscli
-
-          aws configure set preview.cloudfront true
-
-          if [[ $DEPLOY_PROD == true ]]; then
-            aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"
-            echo "Created CloudFront prod invalidation"
-            echo "View @ https://resume.orleans.io"
-          fi
-          if [[ $DEPLOY_DEV == true ]]; then
-            aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DEV_DISTRIBUTION_ID --paths "/*"
-            echo "Created CloudFront dev invalidation"
-            echo "View @ https://dev.resume.orleans.io"
-          fi
+        with:
+          folder: 'build'
+          bucket: '${{ secrets.AWS_S3_PROD_BUCKET }}'
+          bucket-region: '${{ secrets.AWS_S3_BUCKET_REGION }}'
+          dist-id: '${{ secrets.AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID }}'
+          delete-removed: yes
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_ACCESS_KEY_SECRET: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
-          AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID }}
-          AWS_S3_PROD_BUCKET: ${{ secrets.AWS_S3_PROD_BUCKET }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
